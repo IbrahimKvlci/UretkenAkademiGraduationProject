@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem.XR;
 using Zenject;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour,IEnemyState
 {
     [SerializeField] private float speed;
     [SerializeField] private float rotateSpeed;
@@ -28,11 +28,6 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    private void Update()
-    {
-        HandleMovement();
-    }
-
     private void HandleMovement()
     {
         Vector2 movementInputVector = _gameInputSystem.GetMovementVectorNormalized();
@@ -45,5 +40,19 @@ public class PlayerMovement : MonoBehaviour
             gameObject.transform.forward = Vector3.Slerp(transform.forward, movementVector, Time.deltaTime * rotateSpeed); ;
         }
     }
-    
+
+    public void EnterState(IEnemyStateService enemyStateManager)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void UpdateState(IEnemyStateService enemyStateManager)
+    {
+        HandleMovement();
+    }
+
+    public void ExitState(IEnemyStateService enemyStateManager)
+    {
+        throw new System.NotImplementedException();
+    }
 }
