@@ -1,0 +1,34 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class EnemyMoveState : EnemyStateBase
+{
+    IEnemyMovementService enemyMovement;
+
+    public EnemyMoveState(Enemy enemy, IEnemyStateService enemyStateService, IEnemyMovementService enemyMovement) : base(enemy, enemyStateService)
+    {
+        this.enemyMovement = enemyMovement;
+    }
+
+    public override void EnterState()
+    {
+        base.EnterState();
+    }
+
+    public override void UpdateState()
+    {
+        base.UpdateState();
+        enemyMovement.HandleMovement();
+
+        if(_enemy.IsPlayerTriggered)
+        {
+            _enemyStateService.SwitchState(_enemy.EnemyChaseState);
+        }
+    }
+
+    public override void ExitState()
+    {
+        base.ExitState();
+    }
+}

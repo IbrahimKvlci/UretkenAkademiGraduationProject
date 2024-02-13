@@ -3,46 +3,46 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyMovement : MonoBehaviour
+public class EnemyMovement:IEnemyMovementService
 {
-    private NavMeshAgent navMeshAgent;
+    private EnemySO _enemySO;
 
-    private Vector3 pointToMove;
-    private float range = 10.0f;
+    private NavMeshAgent _navMeshAgent;
+    private Transform _enemyTransform;
+
+
     private bool canCreateRandomPoint;
-    private float moveToAttackRange = 10f;
 
-    private void Awake()
+
+    public EnemyMovement(Enemy enemy)
     {
-        navMeshAgent = GetComponent<NavMeshAgent>();
+        _navMeshAgent = enemy.GetComponent<NavMeshAgent>();
+        _enemyTransform = enemy.transform;
+        _enemySO = enemy.EnemySO;
+
+        _navMeshAgent.speed=_enemySO.speed;
     }
 
-    private void Start()
-    {
-        canCreateRandomPoint = true;
-    }
 
-    private void Update()
-    {
-        HandleMovement();
-    }
-
-    private void HandleMovement()
+    public void HandleMovement()
     {
         if (canCreateRandomPoint)
         {
-            if (RandomPoint(transform.position, range, out Vector3 point))
+            if (RandomPoint(_enemyTransform.transform.position, _enemySO.maxMoveRange, out Vector3 point))
             {
-                pointToMove = point;
+                MoveToPoint(point);
                 canCreateRandomPoint = false;
             }
         }
-        else if (transform.position == navMeshAgent.destination)
+        else if (_enemyTransform.transform.position == _navMeshAgent.destination)
         {
             canCreateRandomPoint = true;
         }
+    }
 
-        navMeshAgent.destination = pointToMove;
+    public void MoveToPoint(Vector3 pointToMove)
+    {
+        _navMeshAgent.destination = pointToMove;
     }
 
     private bool RandomPoint(Vector3 center, float range, out Vector3 result)

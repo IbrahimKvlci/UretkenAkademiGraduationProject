@@ -8,5 +8,7 @@ public class GameIntaller : MonoInstaller
     public override void InstallBindings()
     {
         Container.Bind<IGameInputSystem>().To<GameInputManager>().FromComponentInNewPrefab(gameInputManager).AsSingle();
+
+        Container.Bind<IEnemyTriggerCheckService>().To<EnemyTriggerCheckManager>().AsSingle();
     }
 }

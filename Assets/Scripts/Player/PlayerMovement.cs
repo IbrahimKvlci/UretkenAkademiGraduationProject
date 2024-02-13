@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem.XR;
 using Zenject;
 
-public class PlayerMovement : MonoBehaviour,IEnemyState
+public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float rotateSpeed;
@@ -27,6 +27,10 @@ public class PlayerMovement : MonoBehaviour,IEnemyState
         characterController = GetComponent<CharacterController>();
     }
 
+    private void Update()
+    {
+        HandleMovement();
+    }
 
     private void HandleMovement()
     {
@@ -41,18 +45,5 @@ public class PlayerMovement : MonoBehaviour,IEnemyState
         }
     }
 
-    public void EnterState(IEnemyStateService enemyStateManager)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void UpdateState(IEnemyStateService enemyStateManager)
-    {
-        HandleMovement();
-    }
-
-    public void ExitState(IEnemyStateService enemyStateManager)
-    {
-        throw new System.NotImplementedException();
-    }
+   
 }
