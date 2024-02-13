@@ -15,16 +15,13 @@ public class EnemyStateBase : IEnemyState
 
     public virtual void EnterState()
     {
-        Debug.Log("EnterState");
     }
 
     public virtual void ExitState()
     {
-        Debug.Log("ExitState");
     }
 
     public virtual void UpdateState()
     {
-        Debug.Log("UpdateState");
     }
 }

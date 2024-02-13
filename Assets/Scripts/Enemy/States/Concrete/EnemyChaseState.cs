@@ -27,6 +27,11 @@ public class EnemyChaseState : EnemyStateBase
         {
             _enemyStateService.SwitchState(_enemy.EnemyMoveState);
         }
+
+        if(_enemy.IsPlayerTriggeredToBeAttacked)
+        {
+            _enemyStateService.SwitchState(_enemy.EnemyAttackState);
+        }
     }
 
     public override void ExitState()

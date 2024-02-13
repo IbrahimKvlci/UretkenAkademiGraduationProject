@@ -4,5 +4,7 @@ using UnityEngine;
 
 public interface IEnemyTriggerCheckService
 {
-    bool IsPlayerTriggered(Enemy enemy,Player player,LayerMask layerMask);
+    bool IsPlayerTriggered(Transform point,Enemy enemy,Player player,LayerMask layerMask);
+
+    bool IsPlayerTriggeredToBeAttacked(Transform point, Enemy enemy, Player player, LayerMask layerMask);
 }

@@ -5,8 +5,13 @@ using UnityEngine;
 public class EnemyTriggerCheckManager : IEnemyTriggerCheckService
 {
 
-    public bool IsPlayerTriggered(Enemy enemy,Player player, LayerMask layerMask)
+    public bool IsPlayerTriggered(Transform point,Enemy enemy,Player player, LayerMask layerMask)
     {
-        return Physics.CheckSphere(enemy.transform.position, enemy.EnemySO.attackRange, layerMask);
+        return Physics.CheckSphere(point.position, enemy.EnemySO.chaseRange, layerMask);
+    }
+
+    public bool IsPlayerTriggeredToBeAttacked(Transform point,Enemy enemy, Player player, LayerMask layerMask)
+    {
+        return Physics.Raycast(point.position, point.forward,enemy.EnemySO.attackRange, layerMask);
     }
 }

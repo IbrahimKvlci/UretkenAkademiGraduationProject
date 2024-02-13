@@ -9,13 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f2c2deebdef30242823053b16fb422d, type: 3}
-  m_Name: Enemy1
+  m_Script: {fileID: 11500000, guid: a7402d6ab3af94341915cca15dd549fe, type: 3}
+  m_Name: Player
   m_EditorClassIdentifier: 
   maxHealth: 100
-  speed: 5
-  maxMoveRange: 20
-  chaseRange: 10
-  attackRange: 5
-  attackSpeed: 3
-  attackDamage: 10
+  speed: 3

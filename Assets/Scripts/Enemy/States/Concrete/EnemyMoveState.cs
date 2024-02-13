@@ -14,6 +14,7 @@ public class EnemyMoveState : EnemyStateBase
     public override void EnterState()
     {
         base.EnterState();
+        enemyMovement.CanMove = true;
     }
 
     public override void UpdateState()

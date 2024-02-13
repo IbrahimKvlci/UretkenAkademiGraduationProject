@@ -3,12 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyMovement:IEnemyMovementService
+public class EnemyMovement : IEnemyMovementService
 {
-    private EnemySO _enemySO;
-
-    private NavMeshAgent _navMeshAgent;
-    private Transform _enemyTransform;
+    private Enemy _enemy;
 
 
     private bool canCreateRandomPoint;
@@ -16,25 +13,37 @@ public class EnemyMovement:IEnemyMovementService
 
     public EnemyMovement(Enemy enemy)
     {
-        _navMeshAgent = enemy.GetComponent<NavMeshAgent>();
-        _enemyTransform = enemy.transform;
-        _enemySO = enemy.EnemySO;
+        _enemy = enemy;
 
-        _navMeshAgent.speed=_enemySO.speed;
+        _enemy.GetComponent<NavMeshAgent>().speed = _enemy.EnemySO.speed;
     }
 
+    private bool _canMove;
+    public bool CanMove
+    {
+        get
+        {
+            return _canMove;
+        }
+        set
+        {
+            _canMove = value;
+            _enemy.GetComponent<NavMeshAgent>().isStopped = !value;
+        }
+    }
 
     public void HandleMovement()
     {
+
         if (canCreateRandomPoint)
         {
-            if (RandomPoint(_enemyTransform.transform.position, _enemySO.maxMoveRange, out Vector3 point))
+            if (RandomPoint(_enemy.transform.position, _enemy.EnemySO.maxMoveRange, out Vector3 point))
             {
                 MoveToPoint(point);
                 canCreateRandomPoint = false;
             }
         }
-        else if (_enemyTransform.transform.position == _navMeshAgent.destination)
+        else if (_enemy.transform.position == _enemy.GetComponent<NavMeshAgent>().destination)
         {
             canCreateRandomPoint = true;
         }
@@ -42,7 +51,7 @@ public class EnemyMovement:IEnemyMovementService
 
     public void MoveToPoint(Vector3 pointToMove)
     {
-        _navMeshAgent.destination = pointToMove;
+        _enemy.GetComponent<NavMeshAgent>().destination = pointToMove;
     }
 
     private bool RandomPoint(Vector3 center, float range, out Vector3 result)
@@ -60,4 +69,6 @@ public class EnemyMovement:IEnemyMovementService
         result = Vector3.zero;
         return false;
     }
+
+
 }
