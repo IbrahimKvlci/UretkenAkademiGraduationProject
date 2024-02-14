@@ -28,9 +28,9 @@ public class EnemyChaseState : EnemyStateBase
             _enemyStateService.SwitchState(_enemy.EnemyMoveState);
         }
 
-        if(_enemy.IsPlayerTriggeredToBeAttacked)
+        if(_enemy.IsPlayerTriggeredToBePreparedForAttack)
         {
-            _enemyStateService.SwitchState(_enemy.EnemyAttackState);
+            _enemyStateService.SwitchState(_enemy.EnemyPreapareAttackState);
         }
     }
 

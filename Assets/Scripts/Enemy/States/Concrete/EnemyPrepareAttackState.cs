@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAttackState : EnemyStateBase
+public class EnemyPrepareAttackState : EnemyStateBase
 {
     private float enemyAttackTimer;
 
     private IEnemyAttackService _enemyAttackService;
     private IEnemyMovementService _enemyMovementService;
 
-    public EnemyAttackState(Enemy enemy, IEnemyStateService enemyStateService,IEnemyAttackService enemyAttackService,IEnemyMovementService enemyMovementService) : base(enemy, enemyStateService)
+    public EnemyPrepareAttackState(Enemy enemy, IEnemyStateService enemyStateService,IEnemyAttackService enemyAttackService,IEnemyMovementService enemyMovementService) : base(enemy, enemyStateService)
     {
         _enemyAttackService = enemyAttackService;
         _enemyMovementService = enemyMovementService;
@@ -27,15 +27,16 @@ public class EnemyAttackState : EnemyStateBase
     public override void UpdateState()
     {
         base.UpdateState();
+        Vector3 enemyNewForward = Player.Instance.transform.position - _enemy.transform.position;
+        _enemy.transform.forward = Vector3.Slerp(_enemy.transform.forward, enemyNewForward, _enemy.EnemySO.rotationSpeed*Time.deltaTime).normalized;
         enemyAttackTimer += Time.deltaTime;
-        if (enemyAttackTimer > _enemy.EnemySO.attackSpeed)
+        if ((enemyAttackTimer > _enemy.EnemySO.attackSpeed)&&_enemy.IsPlayerTriggeredToBeAttacked)
         {
             enemyAttackTimer = 0;
-
-            _enemyAttackService.Attack(Player.Instance, _enemy.EnemySO.attackDamage);
+            _enemyStateService.SwitchState(_enemy.EnemyAttackState);
         }
 
-        if (!_enemy.IsPlayerTriggeredToBeAttacked)
+        if (!_enemy.IsPlayerTriggeredToBePreparedForAttack)
         {
             _enemyStateService.SwitchState(_enemy.EnemyChaseState);
         }

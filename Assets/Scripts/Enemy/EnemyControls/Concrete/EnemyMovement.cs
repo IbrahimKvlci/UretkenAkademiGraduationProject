@@ -29,6 +29,7 @@ public class EnemyMovement : IEnemyMovementService
         {
             _canMove = value;
             _enemy.GetComponent<NavMeshAgent>().isStopped = !value;
+            _enemy.GetComponent<NavMeshAgent>().ResetPath();
         }
     }
 

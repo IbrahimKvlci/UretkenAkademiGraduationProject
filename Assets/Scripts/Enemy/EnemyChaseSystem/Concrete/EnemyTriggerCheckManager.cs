@@ -14,4 +14,9 @@ public class EnemyTriggerCheckManager : IEnemyTriggerCheckService
     {
         return Physics.Raycast(point.position, point.forward,enemy.EnemySO.attackRange, layerMask);
     }
+
+    public bool IsPlayerTriggeredToBePreparedForAttack(Transform point, Enemy enemy, Player player, LayerMask layerMask)
+    {
+        return Physics.CheckSphere(point.position, enemy.EnemySO.attackRange, layerMask);
+    }
 }

@@ -21,5 +21,6 @@ public class EnemyTriggerCheck : MonoBehaviour
     {
         enemy.IsPlayerTriggered =_enemyTriggerCheckService.IsPlayerTriggered(transform,enemy, Player.Instance, layerMask);
         enemy.IsPlayerTriggeredToBeAttacked = _enemyTriggerCheckService.IsPlayerTriggeredToBeAttacked(transform, enemy, Player.Instance, layerMask);
+        enemy.IsPlayerTriggeredToBePreparedForAttack=_enemyTriggerCheckService.IsPlayerTriggeredToBePreparedForAttack(transform, enemy, Player.Instance, layerMask);
     }
 }

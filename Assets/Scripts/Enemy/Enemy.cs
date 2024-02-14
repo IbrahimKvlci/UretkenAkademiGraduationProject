@@ -8,6 +8,7 @@ public abstract class Enemy : MonoBehaviour
     [field:SerializeField] public EnemySO EnemySO { get;private set; }
 
     public bool IsPlayerTriggered { get; set; }
+    public bool IsPlayerTriggeredToBePreparedForAttack { get; set; }
     public bool IsPlayerTriggeredToBeAttacked { get; set; }
 
     private IEnemyMovementService enemyMovementService;
@@ -17,6 +18,7 @@ public abstract class Enemy : MonoBehaviour
 
     public IEnemyState EnemyMoveState {  get; private set; }
     public IEnemyState EnemyChaseState{ get; private set; }
+    public IEnemyState EnemyPreapareAttackState { get; private set; }
     public IEnemyState EnemyAttackState { get; private set; }
     
 
@@ -30,7 +32,8 @@ public abstract class Enemy : MonoBehaviour
         enemyStateService = new EnemyStateManager();
         EnemyMoveState = new EnemyMoveState(this, enemyStateService, enemyMovementService);
         EnemyChaseState = new EnemyChaseState(this, Player.Instance, enemyStateService, enemyChasePlayerService);
-        EnemyAttackState = new EnemyAttackState(this, enemyStateService, enemyAttackService,enemyMovementService);
+        EnemyPreapareAttackState = new EnemyPrepareAttackState(this, enemyStateService, enemyAttackService,enemyMovementService);
+        EnemyAttackState=new EnemyAttackState(this,enemyStateService,enemyAttackService);
     }
 
     private void Start()
