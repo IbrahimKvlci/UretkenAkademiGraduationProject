@@ -13,6 +13,7 @@ public class PlayerAttackManager : IPlayerAttackService
 
     public void Attack(Enemy enemy, WeaponSO weaponSO)
     {
+        Debug.Log("Player attacked enemy");
         enemy.EnemyHealthService.TakeDamage(enemy,weaponSO.damage);
     }
 

@@ -6,8 +6,11 @@ public class PlayerAttackState : PlayerStateBase
 {
     private float attackTimer;
 
-    public PlayerAttackState(Player player, IPlayerStateService playerStateService) : base(player, playerStateService)
+    private IPlayerAttackService _playerAttackService;
+
+    public PlayerAttackState(Player player, IPlayerStateService playerStateService,IPlayerAttackService playerAttackService) : base(player, playerStateService)
     {
+        _playerAttackService=playerAttackService;
     }
 
     public override void EnterState()
@@ -23,7 +26,10 @@ public class PlayerAttackState : PlayerStateBase
         if(attackTimer>_player.WeaponSO.speed)
         {
             attackTimer = 0;
-            Debug.Log("Attacked!");
+            if(_player.EnemyTriggeredToBeAttacked!=null)
+            {
+                _playerAttackService.Attack(_player.EnemyTriggeredToBeAttacked, _player.WeaponSO);
+            }
             _playerStateService.SwitchState(_player.PlayerIdleState);
         }
     }

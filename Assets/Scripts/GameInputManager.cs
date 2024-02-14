@@ -35,6 +35,6 @@ public class GameInputManager : MonoBehaviour, IGameInputSystem
 
     public bool OnAttackButtonPressed()
     {
-        return gameInputActions.Player.Attack.IsPressed();
+        return gameInputActions.Player.Attack.triggered;
     }
 }

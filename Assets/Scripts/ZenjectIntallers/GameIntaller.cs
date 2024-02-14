@@ -10,5 +10,6 @@ public class GameIntaller : MonoInstaller
         Container.Bind<IGameInputSystem>().To<GameInputManager>().FromComponentInNewPrefab(gameInputManager).AsSingle();
 
         Container.Bind<IEnemyTriggerCheckService>().To<EnemyTriggerCheckManager>().AsSingle();
+        Container.Bind<IPlayerTriggerCheckService>().To<PlayerTriggerCheckManager>().AsSingle();
     }
 }

@@ -44,6 +44,7 @@ public abstract class Enemy : MonoBehaviour
 
     private void Start()
     {
+        Health = EnemySO.maxHealth;
         enemyStateService.Initialize(EnemyMoveState);
     }
 

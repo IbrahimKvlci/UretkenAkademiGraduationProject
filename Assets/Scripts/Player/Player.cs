@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     [field:SerializeField] public PlayerSO PlayerSO { get; private set; }
     [field: SerializeField] public WeaponSO WeaponSO { get; private set; }
 
+    public Enemy EnemyTriggeredToBeAttacked { get; set; }
 
     public IPlayerHealthService PlayerHealthService {  get; private set; }
 
@@ -50,7 +51,7 @@ public class Player : MonoBehaviour
         PlayerWalkState = new PlayerWalkState(this, playerStateService,playerMovementService,playerAttackService);
         PlayerRunState = new PlayerRunState(this, playerStateService);
         PlayerStartingAttackState = new PlayerStartingAttackState(this, playerStateService);
-        PlayerAttackState=new PlayerAttackState(this,playerStateService);
+        PlayerAttackState=new PlayerAttackState(this,playerStateService,playerAttackService);
     }
 
     private void Start()
