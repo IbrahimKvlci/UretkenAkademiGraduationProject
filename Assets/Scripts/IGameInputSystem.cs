@@ -8,4 +8,5 @@ public interface IGameInputSystem
     event EventHandler OnJumpButtonPressed;
 
     Vector2 GetMovementVectorNormalized();
+    bool OnAttackButtonPressed();
 }

@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7402d6ab3af94341915cca15dd549fe, type: 3}
-  m_Name: Player
+  m_Script: {fileID: 11500000, guid: 12bfb2267d232e44db2808da246b8491, type: 3}
+  m_Name: Weapon1
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  speed: 6
-  rotationSpeed: 10
-  startingAttackSpeed: 0
+  prefab: {fileID: 0}
+  damage: 25
+  speed: 1
+  length: 3

@@ -21,6 +21,7 @@ public class GameInputManager : MonoBehaviour, IGameInputSystem
 
     }
 
+
     private void Jump_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
         OnJumpButtonPressed?.Invoke(this, EventArgs.Empty);
@@ -30,5 +31,10 @@ public class GameInputManager : MonoBehaviour, IGameInputSystem
     {
         movementVector=gameInputActions.Player.Movement.ReadValue<Vector2>();
         return movementVector;
+    }
+
+    public bool OnAttackButtonPressed()
+    {
+        return gameInputActions.Player.Attack.IsPressed();
     }
 }
