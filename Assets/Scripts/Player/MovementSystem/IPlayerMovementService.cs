@@ -6,4 +6,5 @@ public interface IPlayerMovementService
 {
     void HandleMovement();
     bool IsWalking();
+    void Dash(float speed);
 }

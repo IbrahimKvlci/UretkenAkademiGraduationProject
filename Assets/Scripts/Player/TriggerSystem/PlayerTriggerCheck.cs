@@ -23,5 +23,9 @@ public class PlayerTriggerCheck : MonoBehaviour
         {
             player.EnemyTriggeredToBeAttacked= enemy;
         }
+        else
+        {
+            player.EnemyTriggeredToBeAttacked = null;
+        }
     }
 }

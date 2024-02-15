@@ -41,6 +41,11 @@ public class PlayerMovement:IPlayerMovementService
         }
     }
 
+    public void Dash(float speed)
+    {
+        characterController.Move(_player.transform.forward * speed * Time.deltaTime);
+    }
+
     public bool IsWalking()
     {
         if(_gameInputSystem.GetMovementVectorNormalized() != Vector2.zero)
