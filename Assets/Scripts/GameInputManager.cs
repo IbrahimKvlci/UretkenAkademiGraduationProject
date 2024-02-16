@@ -37,4 +37,9 @@ public class GameInputManager : MonoBehaviour, IGameInputSystem
     {
         return gameInputActions.Player.Attack.triggered;
     }
+
+    public bool OnSkillButtonPressed()
+    {
+        return gameInputActions.Player.Skill.triggered;
+    }
 }

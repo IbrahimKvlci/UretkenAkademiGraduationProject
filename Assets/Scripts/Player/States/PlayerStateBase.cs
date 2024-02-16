@@ -6,11 +6,13 @@ public class PlayerStateBase:IPlayerState
 {
     protected Player _player;
     protected IPlayerStateService _playerStateService;
+    protected IPlayerAnimationService _playerAnimationService;
 
-    public PlayerStateBase(Player player, IPlayerStateService playerStateService)
+    public PlayerStateBase(Player player, IPlayerStateService playerStateService,IPlayerAnimationService playerAnimationService)
     {
         _player = player;
         _playerStateService = playerStateService;
+        _playerAnimationService = playerAnimationService;
     }
 
     public virtual void EnterState()

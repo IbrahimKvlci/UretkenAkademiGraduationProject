@@ -15,4 +15,4 @@ MonoBehaviour:
   maxHealth: 100
   speed: 6
   rotationSpeed: 10
-  startingAttackSpeed: 0
+  startingAttackSpeed: 2

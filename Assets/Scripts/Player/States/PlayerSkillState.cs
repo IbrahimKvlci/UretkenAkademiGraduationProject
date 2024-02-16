@@ -6,7 +6,7 @@ public class PlayerSkillState : PlayerStateBase
 {
     IPlayerSkillService _playerSkillService;
 
-    public PlayerSkillState(Player player, IPlayerStateService playerStateService,IPlayerSkillService playerSkillService) : base(player, playerStateService)
+    public PlayerSkillState(Player player, IPlayerStateService playerStateService,IPlayerSkillService playerSkillService,IPlayerAnimationService playerAnimationService) : base(player, playerStateService, playerAnimationService)
     {
         _playerSkillService = playerSkillService;
     }

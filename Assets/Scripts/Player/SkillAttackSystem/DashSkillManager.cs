@@ -6,10 +6,10 @@ public class DashSkillManager : ISkillService
 {
    
 
-    public void UseSkill(SkillBaseSO skill,Player player)
+    public void UseSkill(SkillBaseSO skill)
     {
         DashSkillSO dashSkillSO=(DashSkillSO)skill;
 
-       player.PlayerMovementService.Dash(dashSkillSO.speed);
+        Player.Instance.PlayerMovementService.Dash(dashSkillSO.speed);
     }
 }

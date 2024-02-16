@@ -9,4 +9,5 @@ public interface IGameInputSystem
 
     Vector2 GetMovementVectorNormalized();
     bool OnAttackButtonPressed();
+    bool OnSkillButtonPressed();
 }

@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IPlayerSkillService
 {
-    void UseSkill(SkillBaseSO skill, Player player);
+    void UseSkill(SkillBase skill);
 }

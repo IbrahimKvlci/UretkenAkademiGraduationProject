@@ -7,7 +7,7 @@ public class PlayerIdleState : PlayerStateBase
     IPlayerAttackService _playerAttackService;
     IPlayerMovementService _playerMovementService;
 
-    public PlayerIdleState(Player player, IPlayerStateService playerStateService,IPlayerAttackService playerAttackService,IPlayerMovementService playerMovementService) : base(player, playerStateService)
+    public PlayerIdleState(Player player, IPlayerStateService playerStateService,IPlayerAttackService playerAttackService,IPlayerMovementService playerMovementService,IPlayerAnimationService playerAnimationService) : base(player, playerStateService,playerAnimationService)
     {
         _playerAttackService = playerAttackService;
         _playerMovementService = playerMovementService;
@@ -16,7 +16,7 @@ public class PlayerIdleState : PlayerStateBase
     public override void EnterState()
     {
         base.EnterState();
-        Debug.Log("Player Idle State");
+        _playerAnimationService.SetAnimationBool(PlayerAnimation.PlayerAnimationEnum.Idle,true);
     }
 
     public override void UpdateState()
@@ -35,5 +35,6 @@ public class PlayerIdleState : PlayerStateBase
     public override void ExitState()
     {
         base.ExitState();
+        _playerAnimationService.SetAnimationBool(PlayerAnimation.PlayerAnimationEnum.Idle, false);
     }
 }

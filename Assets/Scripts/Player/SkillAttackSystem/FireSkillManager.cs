@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FireSkillManager:ISkillService
 {
-    public void UseSkill(SkillBaseSO fireSkillSO, Player player)
+    public void UseSkill(SkillBaseSO fireSkillSO)
     {
         Debug.Log($"Used {((FireSkillSO)fireSkillSO).damage}");
     }

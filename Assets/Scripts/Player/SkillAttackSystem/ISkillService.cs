@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface ISkillService
 {
-    void UseSkill(SkillBaseSO skill,Player player);
+    void UseSkill(SkillBaseSO skill);
 }

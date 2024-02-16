@@ -5,32 +5,39 @@ using UnityEngine;
 public class PlayerAttackState : PlayerStateBase
 {
     private float attackTimer;
+    private bool canAttack;
 
     private IPlayerAttackService _playerAttackService;
 
-    public PlayerAttackState(Player player, IPlayerStateService playerStateService,IPlayerAttackService playerAttackService) : base(player, playerStateService)
+    private PlayerAnimationHandler _playerAnimationHandler;
+
+    public PlayerAttackState(Player player, IPlayerStateService playerStateService, IPlayerAttackService playerAttackService, IPlayerAnimationService playerAnimationService, PlayerAnimationHandler playerAnimationHandler) : base(player, playerStateService, playerAnimationService)
     {
-        _playerAttackService=playerAttackService;
+        _playerAttackService = playerAttackService;
+        _playerAnimationHandler = playerAnimationHandler;
     }
 
     public override void EnterState()
     {
         base.EnterState();
+        _playerAnimationHandler.OnPlayerMeleeAttackFinished += playerAnimationHandler_OnPlayerMeleeAttackFinished;
         attackTimer = 0;
+        canAttack = true;
+    }
+
+    private void playerAnimationHandler_OnPlayerMeleeAttackFinished(object sender, System.EventArgs e)
+    {
+        _playerStateService.SwitchState(_player.PlayerIdleState);
     }
 
     public override void UpdateState()
     {
         base.UpdateState();
-        attackTimer += Time.deltaTime;
-        if(attackTimer>_player.WeaponSO.speed)
+
+        if (_player.EnemyTriggeredToBeAttacked != null&&canAttack)
         {
-            attackTimer = 0;
-            if(_player.EnemyTriggeredToBeAttacked!=null)
-            {
-                _playerAttackService.Attack(_player.EnemyTriggeredToBeAttacked, _player.WeaponSO);
-            }
-            _playerStateService.SwitchState(_player.PlayerIdleState);
+            _playerAttackService.Attack(_player.EnemyTriggeredToBeAttacked, _player.WeaponSO);
+            canAttack = false;
         }
     }
 

@@ -7,7 +7,7 @@ public class PlayerWalkState : PlayerStateBase
     private IPlayerMovementService _playerMovementService;
     private IPlayerAttackService _playerAttackService;
 
-    public PlayerWalkState(Player player, IPlayerStateService playerStateService,IPlayerMovementService playerMovementService,IPlayerAttackService playerAttackService) : base(player, playerStateService)
+    public PlayerWalkState(Player player, IPlayerStateService playerStateService,IPlayerMovementService playerMovementService,IPlayerAttackService playerAttackService,IPlayerAnimationService playerAnimationService) : base(player, playerStateService, playerAnimationService)
     {
         _playerMovementService = playerMovementService;
         _playerAttackService = playerAttackService;
@@ -16,6 +16,7 @@ public class PlayerWalkState : PlayerStateBase
     public override void EnterState()
     {
         base.EnterState();
+        _playerAnimationService.SetAnimationBool(PlayerAnimation.PlayerAnimationEnum.Run, true);
     }
 
     public override void UpdateState()
@@ -36,5 +37,7 @@ public class PlayerWalkState : PlayerStateBase
     public override void ExitState()
     {
         base.ExitState();
+        _playerAnimationService.SetAnimationBool(PlayerAnimation.PlayerAnimationEnum.Run, false);
+
     }
 }

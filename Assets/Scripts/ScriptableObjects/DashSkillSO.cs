@@ -7,13 +7,13 @@ public class DashSkillSO : SkillBaseSO
 {
     public float speed;
 
-    public override void UseSkill(Player player)
+    public override void UseSkill()
     {
         if (SkillService == null)
         {
             SkillService=new DashSkillManager();
         }
-        SkillService.UseSkill(this,player);
+        SkillService.UseSkill(this);
     }
 
 }

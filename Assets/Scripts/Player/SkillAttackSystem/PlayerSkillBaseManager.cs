@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class PlayerSkillManager : IPlayerSkillService
 {
-    public void UseSkill(SkillBaseSO skill,Player player)
+    public void UseSkill(SkillBase skill)
     {
-        skill.UseSkill(player);
+        if (skill.CanUse)
+        {
+            skill.SkillBaseSO.UseSkill();
+        }
     }
+
 }

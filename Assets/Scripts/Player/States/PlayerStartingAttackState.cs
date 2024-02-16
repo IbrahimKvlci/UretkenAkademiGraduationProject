@@ -6,25 +6,25 @@ public class PlayerStartingAttackState : PlayerStateBase
 {
     private float startingAttackSpeedTimer;
 
-    public PlayerStartingAttackState(Player player, IPlayerStateService playerStateService) : base(player, playerStateService)
+    private PlayerAnimationHandler _playerAnimationHandler;
+
+    public PlayerStartingAttackState(Player player, IPlayerStateService playerStateService,IPlayerAnimationService playerAnimationService,PlayerAnimationHandler playerAnimationHandler) : base(player, playerStateService, playerAnimationService)
     {
+        _playerAnimationHandler = playerAnimationHandler;
     }
 
     public override void EnterState()
     {
         base.EnterState();
+        _playerAnimationHandler.OnPlayerMeleeAttack += playerAnimationHandler_OnPlayerMeleeAttack;
         Debug.Log("Player Attack state");
+        _playerAnimationService.SetAnimationTrigger(PlayerAnimation.PlayerAnimationEnum.IsAttacking);
+
     }
 
-    public override void UpdateState()
+    private void playerAnimationHandler_OnPlayerMeleeAttack(object sender, System.EventArgs e)
     {
-        base.UpdateState();
-        startingAttackSpeedTimer += Time.deltaTime;
-        if (startingAttackSpeedTimer > _player.PlayerSO.startingAttackSpeed)
-        {
-            startingAttackSpeedTimer = 0;
-            _playerStateService.SwitchState(_player.PlayerAttackState);
-        }
+        _playerStateService.SwitchState(_player.PlayerAttackState);
     }
 
     public override void ExitState()
