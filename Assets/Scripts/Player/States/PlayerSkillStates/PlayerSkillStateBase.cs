@@ -15,7 +15,6 @@ public class PlayerSkillStateBase : IPlayerSkillState
 
     public virtual void EnterState()
     {
-        Debug.Log($"{_skillBase.name}");
     }
 
     public virtual void ExitState()

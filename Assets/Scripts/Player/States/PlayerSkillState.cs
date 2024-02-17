@@ -4,21 +4,26 @@ using UnityEngine;
 
 public class PlayerSkillState : PlayerStateBase
 {
-    IPlayerSkillService _playerSkillService;
 
-    public PlayerSkillState(Player player, IPlayerStateService playerStateService,IPlayerSkillService playerSkillService,IPlayerAnimationService playerAnimationService) : base(player, playerStateService, playerAnimationService)
+
+    public PlayerSkillState(Player player, IPlayerStateService playerStateService,IPlayerAnimationService playerAnimationService) : base(player, playerStateService, playerAnimationService)
     {
-        _playerSkillService = playerSkillService;
+
     }
 
     public override void EnterState()
     {
         base.EnterState();
+        Debug.Log("Player Skill State");
     }
 
     public override void UpdateState()
     {
         base.UpdateState();
+        if (!_playerSkill.IsUsing)
+        {
+            _playerStateService.SwitchState(_player.PlayerIdleState);
+        }
 
     }
 

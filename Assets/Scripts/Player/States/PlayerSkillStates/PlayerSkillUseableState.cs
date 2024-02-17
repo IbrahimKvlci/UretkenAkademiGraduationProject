@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class PlayerSkillUseableState : PlayerSkillStateBase
 {
-    public PlayerSkillUseableState(SkillBase skillBase, IPlayerSkillStateService playerSkillStateService) : base(skillBase, playerSkillStateService)
+    private PlayerSkill _playerSkill;
+
+    public PlayerSkillUseableState(SkillBase skillBase, IPlayerSkillStateService playerSkillStateService,PlayerSkill playerSkill) : base(skillBase, playerSkillStateService)
     {
+        _playerSkill= playerSkill;  
     }
 
     public override void EnterState()
@@ -16,9 +19,12 @@ public class PlayerSkillUseableState : PlayerSkillStateBase
     public override void UpdateState()
     {
         base.UpdateState();
-        if (_skillBase.IsSkillKeyPressed())
+        if (_playerSkill.CanUse)
         {
-            _skillBase.PlayerSkillStateService.SwitchState(_skillBase.PlayerSkillUseState);
+            if (_skillBase.IsSkillKeyPressed() && _skillBase.CanUse)
+            {
+                _skillBase.PlayerSkillStateService.SwitchState(_skillBase.PlayerSkillUseState);
+            }
         }
     }
 

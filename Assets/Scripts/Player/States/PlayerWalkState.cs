@@ -17,6 +17,7 @@ public class PlayerWalkState : PlayerStateBase
     {
         base.EnterState();
         _playerAnimationService.SetAnimationBool(PlayerAnimation.PlayerAnimationEnum.Run, true);
+        Debug.Log("WalkState");
     }
 
     public override void UpdateState()
@@ -28,9 +29,13 @@ public class PlayerWalkState : PlayerStateBase
         {
             _playerStateService.SwitchState(_player.PlayerStartingAttackState);
         }
-        else if (!_playerMovementService.IsWalking())
+        if (!_playerMovementService.IsWalking())
         {
             _playerStateService.SwitchState(_player.PlayerIdleState);
+        }
+        if (_playerSkill.IsUsing)
+        {
+            _playerStateService.SwitchState(_player.PlayerSkillState);
         }
     }
 

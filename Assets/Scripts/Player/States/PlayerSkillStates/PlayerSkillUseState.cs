@@ -11,6 +11,7 @@ public class PlayerSkillUseState : PlayerSkillStateBase
     public override void EnterState()
     {
         base.EnterState();
+        _skillBase.PlayerSkill.IsUsing = true;
     }
 
     public override void UpdateState()
@@ -23,5 +24,6 @@ public class PlayerSkillUseState : PlayerSkillStateBase
     public override void ExitState()
     {
         base.ExitState();
+        _skillBase.PlayerSkill.IsUsing = false;
     }
 }

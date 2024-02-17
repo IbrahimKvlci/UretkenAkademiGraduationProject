@@ -18,6 +18,7 @@ public class PlayerIdleState : PlayerStateBase
         base.EnterState();
         _playerAnimationService.SetAnimationBool(PlayerAnimation.PlayerAnimationEnum.Idle,true);
         _playerAnimationService.ResetAttackCounter();
+        Debug.Log("Idle State");
     }
 
     public override void UpdateState()
@@ -30,6 +31,10 @@ public class PlayerIdleState : PlayerStateBase
         else if (_playerMovementService.IsWalking())
         {
             _playerStateService.SwitchState(_player.PlayerWalkState);
+        }
+        else if (_playerSkill.IsUsing)
+        {
+            _playerStateService.SwitchState(_player.PlayerSkillState);
         }
     }
 

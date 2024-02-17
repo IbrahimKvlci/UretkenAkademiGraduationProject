@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class DashSkillManager : ISkillService
 {
-   
+    public event EventHandler OnSkillUsed;
+
 
     public void UseSkill(SkillBaseSO skill)
     {
-        DashSkillSO dashSkillSO=(DashSkillSO)skill;
+        OnSkillUsed?.Invoke(this, EventArgs.Empty);
+
+        DashSkillSO dashSkillSO = (DashSkillSO)skill;
 
         Player.Instance.PlayerMovementService.Dash(dashSkillSO.speed);
+
     }
 }

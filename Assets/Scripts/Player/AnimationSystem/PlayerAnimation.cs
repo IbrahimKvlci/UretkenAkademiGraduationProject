@@ -6,20 +6,36 @@ public class PlayerAnimation : MonoBehaviour
 {
     [SerializeField] private int maxAttackCounter;
 
+    [SerializeField] private PlayerSkill playerSkill;
+
     public enum PlayerAnimationEnum
     {
         IsAttacking,
         AttackCounter,
         Idle,
-        Run
+        Run,
+        Dash
     }
 
     private Animator animator;
+
+    
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
     }
+
+    private void Start()
+    {
+        playerSkill.DashSkill.SkillBaseSO.SkillService.OnSkillUsed += DashSkillService_OnSkillUsed;
+    }
+
+    private void DashSkillService_OnSkillUsed(object sender, System.EventArgs e)
+    {
+        animator.SetTrigger(PlayerAnimationEnum.Dash.ToString());
+    }
+
 
     public void SetAnimationTrigger(PlayerAnimationEnum animation)
     {
@@ -47,5 +63,10 @@ public class PlayerAnimation : MonoBehaviour
     public void ResetAttackCounter()
     {
         animator.SetInteger(PlayerAnimationEnum.AttackCounter.ToString(), 0);
+    }
+
+    public void UseSkill(PlayerAnimationEnum animationEnum)
+    {
+        animator.SetTrigger(animationEnum.ToString());
     }
 }

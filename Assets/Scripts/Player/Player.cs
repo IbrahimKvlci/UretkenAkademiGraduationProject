@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 
     [field:SerializeField] public PlayerSO PlayerSO { get; private set; }
     [field: SerializeField] public WeaponSO WeaponSO { get; private set; }
+    [field: SerializeField] public PlayerSkill PlayerSkill { get; private set; }
 
     [SerializeField] PlayerAnimation playerAnimation;
     [SerializeField] PlayerAnimationHandler playerAnimationHandler;
@@ -28,6 +29,7 @@ public class Player : MonoBehaviour
     public IPlayerState PlayerRunState { get; set; }
     public IPlayerState PlayerStartingAttackState { get; set; }
     public IPlayerState PlayerAttackState { get; set; }
+    public IPlayerState PlayerSkillState { get; set; }
 
 
     private IGameInputSystem _gameInputSystem;
@@ -58,7 +60,7 @@ public class Player : MonoBehaviour
         PlayerWalkState = new PlayerWalkState(this, playerStateService,PlayerMovementService,playerAttackService, playerAnimationService);
         PlayerStartingAttackState = new PlayerStartingAttackState(this, playerStateService, playerAnimationService, playerAnimationHandler);
         PlayerAttackState=new PlayerAttackState(this,playerStateService,playerAttackService, playerAnimationService, playerAnimationHandler);
-
+        PlayerSkillState = new PlayerSkillState(this, playerStateService, playerAnimationService);
         
     }
 

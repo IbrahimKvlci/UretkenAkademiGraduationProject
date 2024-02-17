@@ -26,13 +26,13 @@ public abstract class SkillBase:MonoBehaviour
     //    _gameInputSystem = gameInputSystem;
     //}
 
-    private void Awake()
+    protected virtual void Awake()
     {
         _gameInputSystem = FindObjectOfType<GameInputManager>(); 
 
         PlayerSkillStateService = new PlayerSkillStateManager();
         Debug.Log("Created!");
-        PlayerSkillUseableState = new PlayerSkillUseableState(this, PlayerSkillStateService);
+        PlayerSkillUseableState = new PlayerSkillUseableState(this, PlayerSkillStateService,PlayerSkill);
         PlayerSkillUseState = new PlayerSkillUseState(this, PlayerSkillStateService);
         PlayerSkillCooldownState = new PlayerSkillCooldownState(this, PlayerSkillStateService);
 

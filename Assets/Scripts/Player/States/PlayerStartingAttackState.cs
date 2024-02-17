@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlayerStartingAttackState : PlayerStateBase
 {
-    private float startingAttackSpeedTimer;
+
 
     private PlayerAnimationHandler _playerAnimationHandler;
 
-    public PlayerStartingAttackState(Player player, IPlayerStateService playerStateService,IPlayerAnimationService playerAnimationService,PlayerAnimationHandler playerAnimationHandler) : base(player, playerStateService, playerAnimationService)
+    public PlayerStartingAttackState(Player player, IPlayerStateService playerStateService, IPlayerAnimationService playerAnimationService, PlayerAnimationHandler playerAnimationHandler) : base(player, playerStateService, playerAnimationService)
     {
         _playerAnimationHandler = playerAnimationHandler;
     }
@@ -20,6 +20,17 @@ public class PlayerStartingAttackState : PlayerStateBase
         Debug.Log("Player Attack state");
         _playerAnimationService.SetAnimationTrigger(PlayerAnimation.PlayerAnimationEnum.IsAttacking);
 
+        _playerSkill.CanUse = false;
+    }
+
+    public override void UpdateState()
+    {
+        base.UpdateState();
+        if (_playerSkill.IsUsing)
+        {
+        _playerStateService.SwitchState(_player.PlayerSkillState);
+        }
+ 
     }
 
     private void playerAnimationHandler_OnPlayerMeleeAttack(object sender, System.EventArgs e)

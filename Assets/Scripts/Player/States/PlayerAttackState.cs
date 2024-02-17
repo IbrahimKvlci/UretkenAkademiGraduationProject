@@ -22,7 +22,13 @@ public class PlayerAttackState : PlayerStateBase
         base.EnterState();
         _playerAnimationHandler.OnPlayerMeleeAttackFinished += playerAnimationHandler_OnPlayerMeleeAttackFinished;
         attackTimer = 0;
-        canAttack = true;
+        _playerSkill.CanUse = false;
+
+        if(_player.EnemyTriggeredToBeAttacked != null)
+        {
+            _playerAttackService.Attack(_player.EnemyTriggeredToBeAttacked, _player.WeaponSO);
+        }
+        _playerSkill.CanUse = true;
     }
 
     private void playerAnimationHandler_OnPlayerMeleeAttackFinished(object sender, System.EventArgs e)
@@ -34,10 +40,9 @@ public class PlayerAttackState : PlayerStateBase
     {
         base.UpdateState();
 
-        if (_player.EnemyTriggeredToBeAttacked != null&&canAttack)
+        if (_playerSkill.IsUsing)
         {
-            _playerAttackService.Attack(_player.EnemyTriggeredToBeAttacked, _player.WeaponSO);
-            canAttack = false;
+            _playerStateService.SwitchState(_player.PlayerSkillState);
         }
 
         if (_playerAttackService.IsAttacking())
@@ -50,5 +55,6 @@ public class PlayerAttackState : PlayerStateBase
     public override void ExitState()
     {
         base.ExitState();
+        _playerSkill.CanUse = true;
     }
 }

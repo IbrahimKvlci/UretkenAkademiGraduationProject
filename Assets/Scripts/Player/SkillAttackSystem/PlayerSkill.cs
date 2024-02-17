@@ -11,6 +11,9 @@ public class PlayerSkill : MonoBehaviour
 
     [field:SerializeField] public Player Player { get; set; }
 
+    public bool IsUsing { get; set; }
+    public bool CanUse {  get; set; }
+
     public IPlayerSkillService PlayerSkillService {  get; set; }
 
     private void Awake()
@@ -23,6 +26,7 @@ public class PlayerSkill : MonoBehaviour
         FireSkill.PlayerSkillStateService.Initialize(FireSkill.PlayerSkillUseableState);
         DashSkill.PlayerSkillStateService.Initialize(DashSkill.PlayerSkillUseableState);
 
+        CanUse = true;
     }
 
     private void Update()
