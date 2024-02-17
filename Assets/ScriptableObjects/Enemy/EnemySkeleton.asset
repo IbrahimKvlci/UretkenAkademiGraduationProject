@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f2c2deebdef30242823053b16fb422d, type: 3}
   m_Name: EnemySkeleton
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 300
   speed: 2
   chaseSpeed: 4
   rotationSpeed: 5

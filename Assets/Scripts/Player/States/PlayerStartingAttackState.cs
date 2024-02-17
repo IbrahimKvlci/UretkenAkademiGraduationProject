@@ -41,5 +41,7 @@ public class PlayerStartingAttackState : PlayerStateBase
     public override void ExitState()
     {
         base.ExitState();
+        _playerAnimationHandler.OnPlayerMeleeAttack -= playerAnimationHandler_OnPlayerMeleeAttack;
+
     }
 }

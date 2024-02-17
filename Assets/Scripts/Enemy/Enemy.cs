@@ -7,7 +7,7 @@ public abstract class Enemy : MonoBehaviour
 {
     [field:SerializeField] public EnemySO EnemySO { get;private set; }
     [field: SerializeField] public EnemyAnimationBase EnemyAnimation { get; private set; }
-
+    [SerializeField] private Player player;
 
     public float Health {  get; set; }
     public bool IsDead { get; set; }
@@ -41,7 +41,7 @@ public abstract class Enemy : MonoBehaviour
 
         enemyStateService = new EnemyStateManager();
         EnemyMoveState = new EnemyMoveState(this, enemyStateService, EnemyMovementService);
-        EnemyChaseState = new EnemyChaseState(this, Player.Instance, enemyStateService, enemyChasePlayerService);
+        EnemyChaseState = new EnemyChaseState(this, player, enemyStateService, enemyChasePlayerService);
         EnemyPreapareAttackState = new EnemyPrepareAttackState(this, enemyStateService, enemyAttackService,EnemyMovementService);
         EnemyAttackState=new EnemyAttackState(this,enemyStateService,enemyAttackService);
         EnemyDeathState = new EnemyDeathState(this, enemyStateService, EnemyMovementService);
