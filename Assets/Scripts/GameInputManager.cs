@@ -10,6 +10,7 @@ public class GameInputManager : MonoBehaviour, IGameInputSystem
     private Vector2 movementVector;
 
     public event EventHandler OnJumpButtonPressed;
+    public event EventHandler OnMouseWheelScrolled;
 
     private void Awake()
     {
@@ -19,8 +20,13 @@ public class GameInputManager : MonoBehaviour, IGameInputSystem
 
         gameInputActions.Player.Jump.performed += Jump_performed;
 
+        gameInputActions.Player.ChangeWeapon.performed += ChangeWeapon_performed;
     }
 
+    private void ChangeWeapon_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        OnMouseWheelScrolled?.Invoke(this, EventArgs.Empty);
+    }
 
     private void Jump_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
@@ -41,5 +47,10 @@ public class GameInputManager : MonoBehaviour, IGameInputSystem
     public bool OnSkillButtonPressed()
     {
         return gameInputActions.Player.Skill.triggered;
+    }
+
+    public int GetMouseWheelValueNormalized()
+    {
+        return (int)gameInputActions.Player.ChangeWeapon.ReadValue<float>()/120;
     }
 }
