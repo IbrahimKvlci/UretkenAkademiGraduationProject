@@ -16,6 +16,7 @@ public class EnemyChaseState : EnemyStateBase
     public override void EnterState()
     {
         base.EnterState();
+        _enemy.EnemyAnimation.EnemyAnimationService.SetChasing(true);
     }
 
     public override void UpdateState()
@@ -32,10 +33,16 @@ public class EnemyChaseState : EnemyStateBase
         {
             _enemyStateService.SwitchState(_enemy.EnemyPreapareAttackState);
         }
+        if (_enemy.IsDead)
+        {
+            _enemyStateService.SwitchState(_enemy.EnemyDeathState);
+        }
     }
 
     public override void ExitState()
     {
         base.ExitState();
+        _enemy.EnemyAnimation.EnemyAnimationService.SetChasing(false);
+
     }
 }

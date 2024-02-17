@@ -7,5 +7,7 @@ public interface IEnemyMovementService
     public bool CanMove { get; set; }
 
     void HandleMovement();
-    void MoveToPoint(Vector3 pointToMove);
+    void MoveToPoint(Vector3 pointToMove,float speed);
+    void HandleChase(Player player);
+    
 }

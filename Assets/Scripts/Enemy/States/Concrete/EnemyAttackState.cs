@@ -17,6 +17,8 @@ public class EnemyAttackState : EnemyStateBase
     {
         base.EnterState();
         enemyAttackAnimationTimer = 0;
+        _enemy.EnemyAnimation.EnemyAnimationService.TriggerAttack();
+        Debug.Log("Enemy attack state");
     }
 
     public override void UpdateState()
@@ -34,10 +36,18 @@ public class EnemyAttackState : EnemyStateBase
             }
             _enemyStateService.SwitchState(_enemy.EnemyPreapareAttackState);
         }
+
+        if (_enemy.IsDead)
+        {
+            _enemyStateService.SwitchState(_enemy.EnemyDeathState);
+        }
     }
 
     public override void ExitState()
     {
+        _enemy.EnemyMovementService.CanMove = true;
+        Debug.Log("Enemy attack state exit");
+
         base.ExitState();
     }
 }

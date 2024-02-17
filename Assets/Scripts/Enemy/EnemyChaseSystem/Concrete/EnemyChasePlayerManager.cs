@@ -14,6 +14,6 @@ public class EnemyChasePlayerManager : IEnemyChasePlayerService
 
     public void ChasePlayer(Player player)
     {
-        _enemyMovementService.MoveToPoint(player.transform.position);
+        _enemyMovementService.HandleChase(player);
     }
 }

@@ -22,6 +22,7 @@ public class EnemyPrepareAttackState : EnemyStateBase
         enemyAttackTimer = 0;
 
         _enemyMovementService.CanMove = false;
+        _enemy.EnemyAnimation.EnemyAnimationService.SetStand(true);
     }
 
     public override void UpdateState()
@@ -40,12 +41,17 @@ public class EnemyPrepareAttackState : EnemyStateBase
         {
             _enemyStateService.SwitchState(_enemy.EnemyChaseState);
         }
+        if (_enemy.IsDead)
+        {
+            _enemyStateService.SwitchState(_enemy.EnemyDeathState);
+        }
     }
 
     public override void ExitState()
     {
         base.ExitState();
         Debug.Log("ExitAttack");
+        _enemy.EnemyAnimation.EnemyAnimationService.SetStand(false);
 
         _enemyMovementService.CanMove = true;
     }

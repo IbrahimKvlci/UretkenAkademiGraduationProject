@@ -15,6 +15,7 @@ public class EnemyMoveState : EnemyStateBase
     {
         base.EnterState();
         enemyMovement.CanMove = true;
+
     }
 
     public override void UpdateState()
@@ -25,6 +26,10 @@ public class EnemyMoveState : EnemyStateBase
         if(_enemy.IsPlayerTriggered)
         {
             _enemyStateService.SwitchState(_enemy.EnemyChaseState);
+        }
+        if (_enemy.IsDead)
+        {
+            _enemyStateService.SwitchState(_enemy.EnemyDeathState);
         }
     }
 

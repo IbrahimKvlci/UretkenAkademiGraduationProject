@@ -7,6 +7,7 @@ public class EnemySO : ScriptableObject
 {
     public float maxHealth;
     public float speed;
+    public float chaseSpeed;
     public float rotationSpeed = 5f;
     public float maxMoveRange;
     public float chaseRange;
@@ -14,4 +15,5 @@ public class EnemySO : ScriptableObject
     public float attackSpeed;
     public float attackDamage;
     public float attackAnimationTime;
+    public float deathTime;
 }

@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class EnemyHealthManager : IEnemyHealthService
 {
+    public void Destroy(Enemy enemy)
+    {
+        GameObject.Destroy(enemy.gameObject);
+    }
+
     public void Die(Enemy enemy)
     {
-        Debug.Log($"{enemy.name} Die!");
+        enemy.IsDead = true;
     }
 
     public void TakeDamage(Enemy enemy,float damage)

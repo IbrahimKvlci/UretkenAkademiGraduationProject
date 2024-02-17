@@ -40,7 +40,7 @@ public class EnemyMovement : IEnemyMovementService
         {
             if (RandomPoint(_enemy.transform.position, _enemy.EnemySO.maxMoveRange, out Vector3 point))
             {
-                MoveToPoint(point);
+                MoveToPoint(point, _enemy.EnemySO.speed);
                 canCreateRandomPoint = false;
             }
         }
@@ -50,9 +50,17 @@ public class EnemyMovement : IEnemyMovementService
         }
     }
 
-    public void MoveToPoint(Vector3 pointToMove)
+    public void MoveToPoint(Vector3 pointToMove,float speed)
     {
         _enemy.GetComponent<NavMeshAgent>().destination = pointToMove;
+        _enemy.GetComponent<NavMeshAgent>().speed = speed;
+
+    }
+
+    public void HandleChase(Player player)
+    {
+        MoveToPoint(player.transform.position, _enemy.EnemySO.chaseSpeed);
+
     }
 
     private bool RandomPoint(Vector3 center, float range, out Vector3 result)

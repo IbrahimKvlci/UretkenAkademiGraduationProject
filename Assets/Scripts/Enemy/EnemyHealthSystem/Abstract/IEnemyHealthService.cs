@@ -6,4 +6,5 @@ public interface IEnemyHealthService
 {
     void TakeDamage(Enemy enemy, float damage);
     void Die(Enemy enemy);
+    void Destroy(Enemy enemy);
 }

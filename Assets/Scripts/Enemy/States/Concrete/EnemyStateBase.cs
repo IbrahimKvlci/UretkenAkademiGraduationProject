@@ -23,5 +23,6 @@ public class EnemyStateBase : IEnemyState
 
     public virtual void UpdateState()
     {
+
     }
 }
