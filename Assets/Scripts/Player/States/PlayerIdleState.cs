@@ -17,6 +17,7 @@ public class PlayerIdleState : PlayerStateBase
     {
         base.EnterState();
         _playerAnimationService.SetAnimationBool(PlayerAnimation.PlayerAnimationEnum.Idle,true);
+        _playerAnimationService.ResetAttackCounter();
     }
 
     public override void UpdateState()

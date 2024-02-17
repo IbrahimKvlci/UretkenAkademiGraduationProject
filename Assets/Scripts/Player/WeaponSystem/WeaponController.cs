@@ -6,9 +6,11 @@ using Zenject;
 public class WeaponController : MonoBehaviour
 {
     [field: SerializeField] public List<WeaponSO> WeaponSOList { get; set; }
-    [SerializeField] private WeaponSO currentWeapon;
 
     [SerializeField] private Transform weaponPoint;
+
+    private WeaponSO currentWeapon;
+
 
     private IWeaponService weaponService;
     private IGameInputSystem _gameInputSystem;

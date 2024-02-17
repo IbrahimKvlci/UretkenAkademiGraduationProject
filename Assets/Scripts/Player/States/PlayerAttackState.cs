@@ -39,6 +39,12 @@ public class PlayerAttackState : PlayerStateBase
             _playerAttackService.Attack(_player.EnemyTriggeredToBeAttacked, _player.WeaponSO);
             canAttack = false;
         }
+
+        if (_playerAttackService.IsAttacking())
+        {
+            _playerAnimationService.SetAttackCounter();
+            _playerStateService.SwitchState(_player.PlayerStartingAttackState);
+        }
     }
 
     public override void ExitState()

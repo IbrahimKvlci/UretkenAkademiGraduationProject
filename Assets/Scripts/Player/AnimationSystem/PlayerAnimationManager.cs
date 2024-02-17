@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static PlayerAnimation;
 
 public class PlayerAnimationManager : IPlayerAnimationService
 {
@@ -11,6 +12,10 @@ public class PlayerAnimationManager : IPlayerAnimationService
         _playerAnimation = playerAnimation;
     }
 
+    public void ResetAttackCounter()
+    {
+        _playerAnimation.ResetAttackCounter();
+    }
 
     public void SetAnimationBool(PlayerAnimation.PlayerAnimationEnum playerAnimationEnum, bool isRunning)
     {
@@ -20,5 +25,10 @@ public class PlayerAnimationManager : IPlayerAnimationService
     public void SetAnimationTrigger(PlayerAnimation.PlayerAnimationEnum playerAnimationEnum)
     {
         _playerAnimation.SetAnimationTrigger(playerAnimationEnum);
+    }
+
+    public void SetAttackCounter()
+    {
+        _playerAnimation.SetAttackCounter();
     }
 }
