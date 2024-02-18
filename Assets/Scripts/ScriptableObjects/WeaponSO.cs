@@ -16,7 +16,7 @@ public class WeaponSO : ProductSO
         Debug.Log("calisss");
         if (ProductShopService == null)
         {
-            ProductShopService = new WeaponShopService();
+            ProductShopService = new WeaponShopManager();
         }
 
         ProductShopService.Buy(this, Player.Instance);

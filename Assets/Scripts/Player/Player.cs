@@ -8,12 +8,14 @@ public class Player : MonoBehaviour
     public static Player Instance { get; set; }
 
     [field:SerializeField] public PlayerSO PlayerSO { get; private set; }
-    [field: SerializeField] public WeaponSO WeaponSO { get; private set; }
+    [field: SerializeField] public WeaponSO WeaponSO { get;  set; }
     [field: SerializeField] public PlayerSkill PlayerSkill { get; private set; }
+    [field: SerializeField] public int Gold {  get;  set; }
 
     [SerializeField] PlayerAnimation playerAnimation;
     [SerializeField] PlayerAnimationHandler playerAnimationHandler;
 
+    public WeaponController WeaponController { get; set; }
 
     public Enemy EnemyTriggeredToBeAttacked { get; set; }
 
@@ -42,6 +44,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+
         if (Instance != null)
         {
             Debug.LogError("There are more than one player");
@@ -61,6 +64,8 @@ public class Player : MonoBehaviour
         PlayerStartingAttackState = new PlayerStartingAttackState(this, playerStateService, playerAnimationService, playerAnimationHandler);
         PlayerAttackState=new PlayerAttackState(this,playerStateService,playerAttackService, playerAnimationService, playerAnimationHandler);
         PlayerSkillState = new PlayerSkillState(this, playerStateService, playerAnimationService);
+
+        WeaponController=GetComponent<WeaponController>();
         
     }
 

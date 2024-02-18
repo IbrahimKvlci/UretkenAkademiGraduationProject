@@ -10,7 +10,7 @@ public class Weapon : MonoBehaviour
     {
         foreach (var item in weapons)
         {
-            item.ProductShopService = new WeaponShopService();
+            item.ProductShopService = new WeaponShopManager();
         }
     }
 }

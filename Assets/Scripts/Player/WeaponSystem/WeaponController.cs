@@ -28,6 +28,7 @@ public class WeaponController : MonoBehaviour
 
     private void Start()
     {
+        currentWeapon = Player.Instance.WeaponSO;
         _gameInputSystem.OnMouseWheelScrolled += GameInputSystem_OnMouseWheelScrolled;
 
         if (WeaponSOList.Count > 0)
@@ -42,6 +43,7 @@ public class WeaponController : MonoBehaviour
 
         currentWeapon=weaponService.GetNewWeapon(currentWeapon,WeaponSOList, _gameInputSystem.GetMouseWheelValueNormalized());
         weaponService.CreateWeapon(currentWeapon,weaponPoint,out currentWeapon);
+        Player.Instance.WeaponSO=currentWeapon;
     }
 
     

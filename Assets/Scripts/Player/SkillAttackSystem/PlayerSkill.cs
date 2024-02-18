@@ -5,8 +5,8 @@ using Zenject;
 
 public class PlayerSkill : MonoBehaviour
 {
-    [field: SerializeField] public SkillBase FireSkill { get; set; }
-    [field: SerializeField] public SkillBase DashSkill { get; set; }
+    [field: SerializeField] public List<SkillBase> skillBaseList {  get; private set; }
+
 
     [field: SerializeField] public PlayerAnimation PlayerAnimation { get; set; }
 
@@ -24,16 +24,20 @@ public class PlayerSkill : MonoBehaviour
 
     private void Start()
     {
-        FireSkill.PlayerSkillStateService.Initialize(FireSkill.PlayerSkillUseableState);
-        DashSkill.PlayerSkillStateService.Initialize(DashSkill.PlayerSkillUseableState);
+        foreach (SkillBase skillBase in skillBaseList)
+        {
+            skillBase.PlayerSkillStateService.Initialize(skillBase.PlayerSkillUseableState);
+        }
 
         CanUse = true;
     }
 
     private void Update()
     {
-        FireSkill.PlayerSkillStateService.CurrentPlayerSkillState.UpdateState();
-        DashSkill.PlayerSkillStateService.CurrentPlayerSkillState.UpdateState();
+        foreach (SkillBase skillBase in skillBaseList)
+        {
+            skillBase.PlayerSkillStateService.CurrentPlayerSkillState.UpdateState();
+        }
 
     }
 
