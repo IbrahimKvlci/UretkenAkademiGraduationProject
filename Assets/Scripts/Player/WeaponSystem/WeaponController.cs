@@ -39,7 +39,6 @@ public class WeaponController : MonoBehaviour
 
     private void GameInputSystem_OnMouseWheelScrolled(object sender, System.EventArgs e)
     {
-        Debug.Log(_gameInputSystem.GetMouseWheelValueNormalized());
 
         currentWeapon=weaponService.GetNewWeapon(currentWeapon,WeaponSOList, _gameInputSystem.GetMouseWheelValueNormalized());
         weaponService.CreateWeapon(currentWeapon,weaponPoint,out currentWeapon);

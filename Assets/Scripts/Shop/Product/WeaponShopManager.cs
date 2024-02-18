@@ -8,7 +8,7 @@ public class WeaponShopManager : IProductShopService
     {
         if (player.Gold >= productSO.price)
         {
-            player.Gold -= productSO.price;
+            player.Gold -=productSO.price;
             player.WeaponController.WeaponSOList.Add((WeaponSO)productSO);
         }
         else

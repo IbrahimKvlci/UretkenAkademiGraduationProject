@@ -11,6 +11,7 @@ public class GameInputManager : MonoBehaviour, IGameInputSystem
 
     public event EventHandler OnJumpButtonPressed;
     public event EventHandler OnMouseWheelScrolled;
+    public event EventHandler OnPlayerInteract;
 
     private void Awake()
     {
@@ -21,6 +22,12 @@ public class GameInputManager : MonoBehaviour, IGameInputSystem
         gameInputActions.Player.Jump.performed += Jump_performed;
 
         gameInputActions.Player.ChangeWeapon.performed += ChangeWeapon_performed;
+        gameInputActions.Player.Interact.performed += Interact_performed;
+    }
+
+    private void Interact_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        OnPlayerInteract?.Invoke(this, EventArgs.Empty);
     }
 
     private void ChangeWeapon_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)

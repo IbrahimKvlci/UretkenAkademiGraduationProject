@@ -7,7 +7,8 @@ public class PlayerTriggerCheck : MonoBehaviour
 {
     [SerializeField] private Player player;
 
-    [SerializeField] LayerMask layerMask;
+    [SerializeField] private LayerMask layerMask;
+    [SerializeField] private float range;
 
     private IPlayerTriggerCheckService _playerTriggerCheckService;
 
@@ -32,5 +33,10 @@ public class PlayerTriggerCheck : MonoBehaviour
     public bool IsEnemiesTriggeredToBeAttacked(out List<Enemy> enemies,float range)
     {
         return _playerTriggerCheckService.IsEnemiesTriggeredToBeAttacked(transform, out enemies, range, layerMask);
+    }
+
+    public bool IsInteractableObjectTriggered(out IInteractable interactable)
+    {
+        return _playerTriggerCheckService.IsInteractableObjectTriggered(transform, out interactable,range);
     }
 }

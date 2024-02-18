@@ -12,8 +12,9 @@ public class Player : MonoBehaviour
     [field: SerializeField] public PlayerSkill PlayerSkill { get; private set; }
     [field: SerializeField] public int Gold {  get;  set; }
 
-    [SerializeField] PlayerAnimation playerAnimation;
-    [SerializeField] PlayerAnimationHandler playerAnimationHandler;
+    [SerializeField] private PlayerAnimation playerAnimation;
+    [SerializeField] private PlayerAnimationHandler playerAnimationHandler;
+    [SerializeField] private PlayerTriggerCheck playerTriggerCheck;
 
     public WeaponController WeaponController { get; set; }
 
@@ -74,6 +75,16 @@ public class Player : MonoBehaviour
         PlayerHealthService.Health = PlayerSO.maxHealth;
 
         playerStateService.Initialize(PlayerIdleState);
+
+        _gameInputSystem.OnPlayerInteract += gameInputSystem_OnPlayerInteract;
+    }
+
+    private void gameInputSystem_OnPlayerInteract(object sender, System.EventArgs e)
+    {
+        if(playerTriggerCheck.IsInteractableObjectTriggered(out IInteractable interactable))
+        {
+            interactable.Interact();
+        }
     }
 
     private void Update()
