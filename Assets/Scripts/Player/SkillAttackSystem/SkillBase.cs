@@ -37,6 +37,7 @@ public abstract class SkillBase:MonoBehaviour
         PlayerSkillUseState = new PlayerSkillUseState(this, PlayerSkillStateService);
         PlayerSkillCooldownState = new PlayerSkillCooldownState(this, PlayerSkillStateService);
         PlayerSkillAnimationState=new PlayerSkillAnimationState(this,PlayerSkillStateService);
+        SkillBaseSO.ProductShopService = new SkillShopService();
     }
 
     private void Start()

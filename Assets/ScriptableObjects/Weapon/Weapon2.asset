@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12bfb2267d232e44db2808da246b8491, type: 3}
   m_Name: Weapon2
   m_EditorClassIdentifier: 
+  price: 20
+  text: Weapon 2
+  icon: {fileID: 21300000, guid: 2d089513ae4adfc48a683c362ad9992c, type: 3}
   prefab: {fileID: 1777591198242490, guid: 3329101817c67e24fb70ba97b6168054, type: 3}
   damage: 50
   speed: 1

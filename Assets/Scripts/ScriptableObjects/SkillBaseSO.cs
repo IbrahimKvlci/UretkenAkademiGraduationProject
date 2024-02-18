@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class SkillBaseSO : ScriptableObject
+public abstract class SkillBaseSO : ProductSO
 {
+    
     public float cooldown;
     public float timeToUse;
+
 
     public ISkillService SkillService { get; set; }
     public IPlayerSkillStateService PlayerSkillStateService { get; set; }

@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe6fba54338ce740a4c49ff0892e82b, type: 3}
   m_Name: FireSkill1
   m_EditorClassIdentifier: 
+  price: 30
+  text: Fire Skill
+  icon: {fileID: 21300000, guid: 9895f5f95566ceb47bb239149d90cb44, type: 3}
   cooldown: 3
   timeToUse: 1
   prefab: {fileID: 8378648546881499446, guid: 867c572a5be680d42a042d2349f10143, type: 3}

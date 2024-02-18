@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af3bbf82ac1f27e4e86985404b9fde45, type: 3}
   m_Name: DashSkill1
   m_EditorClassIdentifier: 
+  price: 10
+  text: Dash Skill
+  icon: {fileID: 21300000, guid: 2d089513ae4adfc48a683c362ad9992c, type: 3}
   cooldown: 3
   timeToUse: 0.2
   speed: 200

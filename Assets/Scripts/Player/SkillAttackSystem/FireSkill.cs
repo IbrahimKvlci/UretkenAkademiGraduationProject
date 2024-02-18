@@ -10,6 +10,7 @@ public class FireSkill : SkillBase
     protected override void Awake()
     {
         SkillBaseSO.SkillService = new FireSkillManager(playerTriggerCheck);
+
         base.Awake();
     }
 
