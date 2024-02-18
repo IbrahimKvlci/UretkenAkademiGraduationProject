@@ -9,4 +9,5 @@ public interface ISkillService
     
 
     void UseSkill(SkillBaseSO skill);
+    void PlayAnimation(SkillBaseSO skill,PlayerAnimation playerAnimation);
 }

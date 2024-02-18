@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class PlayerSkillManager : IPlayerSkillService
 {
+    public void PlayAnimation(SkillBase skill, PlayerAnimation playerAnimation)
+    {
+        skill.SkillBaseSO.SkillService.PlayAnimation(skill.SkillBaseSO,playerAnimation);
+    }
+
     public void UseSkill(SkillBase skill)
     {
         if (skill.CanUse)

@@ -6,6 +6,10 @@ public class DashSkillManager : ISkillService
 {
     public event EventHandler OnSkillUsed;
 
+    public void PlayAnimation(SkillBaseSO skill, PlayerAnimation playerAnimation)
+    {
+        playerAnimation.DashSkillAnimation();
+    }
 
     public void UseSkill(SkillBaseSO skill)
     {

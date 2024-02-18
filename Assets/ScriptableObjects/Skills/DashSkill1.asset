@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: DashSkill1
   m_EditorClassIdentifier: 
   cooldown: 3
+  timeToUse: 0.2
   speed: 200

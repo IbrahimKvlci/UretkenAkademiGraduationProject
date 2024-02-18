@@ -17,6 +17,7 @@ public abstract class SkillBase:MonoBehaviour
     public IPlayerSkillState PlayerSkillUseableState {  get; set; }
     public IPlayerSkillState PlayerSkillUseState { get; set; }
     public IPlayerSkillState PlayerSkillCooldownState { get; set; }
+    public IPlayerSkillState PlayerSkillAnimationState { get; set; }
 
     protected IGameInputSystem _gameInputSystem;
 
@@ -35,7 +36,7 @@ public abstract class SkillBase:MonoBehaviour
         PlayerSkillUseableState = new PlayerSkillUseableState(this, PlayerSkillStateService,PlayerSkill);
         PlayerSkillUseState = new PlayerSkillUseState(this, PlayerSkillStateService);
         PlayerSkillCooldownState = new PlayerSkillCooldownState(this, PlayerSkillStateService);
-
+        PlayerSkillAnimationState=new PlayerSkillAnimationState(this,PlayerSkillStateService);
     }
 
     private void Start()

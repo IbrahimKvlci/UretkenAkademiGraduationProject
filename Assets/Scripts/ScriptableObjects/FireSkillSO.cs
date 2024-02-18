@@ -11,10 +11,6 @@ public class FireSkillSO : SkillBaseSO
 
     public override void UseSkill()
     {
-        if (SkillService == null)
-        {
-            SkillService=new FireSkillManager();
-        }
         SkillService.UseSkill(this);
     }
 }

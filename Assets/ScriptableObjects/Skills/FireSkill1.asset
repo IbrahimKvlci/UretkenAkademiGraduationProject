@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: FireSkill1
   m_EditorClassIdentifier: 
   cooldown: 3
-  prefab: {fileID: 0}
+  timeToUse: 1
+  prefab: {fileID: 8378648546881499446, guid: 867c572a5be680d42a042d2349f10143, type: 3}
   damage: 50
   range: 3

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerSkillUseState : PlayerSkillStateBase
 {
+
+
     public PlayerSkillUseState(SkillBase skillBase, IPlayerSkillStateService playerSkillStateService) : base(skillBase, playerSkillStateService)
     {
     }
@@ -17,8 +19,10 @@ public class PlayerSkillUseState : PlayerSkillStateBase
     public override void UpdateState()
     {
         base.UpdateState();
+
         _skillBase.PlayerSkill.PlayerSkillService.UseSkill(_skillBase);
         _playerSkillStateService.SwitchState(_skillBase.PlayerSkillCooldownState);
+
     }
 
     public override void ExitState()

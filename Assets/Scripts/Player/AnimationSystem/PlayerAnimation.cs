@@ -7,6 +7,7 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField] private int maxAttackCounter;
 
     [SerializeField] private PlayerSkill playerSkill;
+    [SerializeField] private Transform skillPoint;
 
     public enum PlayerAnimationEnum
     {
@@ -26,16 +27,19 @@ public class PlayerAnimation : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    private void Start()
+    public void SkillParticleAnimation(GameObject skillPrefab)
     {
-        playerSkill.DashSkill.SkillBaseSO.SkillService.OnSkillUsed += DashSkillService_OnSkillUsed;
+        GameObject prefabVisual = Instantiate(skillPrefab);
+        prefabVisual.transform.SetParent(skillPoint);
+        prefabVisual.transform.localPosition = Vector3.zero;
+        prefabVisual.transform.localRotation = Quaternion.identity;
     }
 
-    private void DashSkillService_OnSkillUsed(object sender, System.EventArgs e)
+    public void DashSkillAnimation()
     {
         animator.SetTrigger(PlayerAnimationEnum.Dash.ToString());
-    }
 
+    }
 
     public void SetAnimationTrigger(PlayerAnimationEnum animation)
     {

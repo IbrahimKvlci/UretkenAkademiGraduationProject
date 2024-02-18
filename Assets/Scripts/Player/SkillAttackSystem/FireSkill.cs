@@ -5,7 +5,13 @@ using Zenject;
 
 public class FireSkill : SkillBase
 {
-   
+    [SerializeField] private PlayerTriggerCheck playerTriggerCheck;
+
+    protected override void Awake()
+    {
+        SkillBaseSO.SkillService = new FireSkillManager(playerTriggerCheck);
+        base.Awake();
+    }
 
     public override bool IsSkillKeyPressed()
     {

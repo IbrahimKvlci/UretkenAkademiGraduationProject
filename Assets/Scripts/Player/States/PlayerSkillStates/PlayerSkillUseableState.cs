@@ -6,6 +6,7 @@ public class PlayerSkillUseableState : PlayerSkillStateBase
 {
     private PlayerSkill _playerSkill;
 
+
     public PlayerSkillUseableState(SkillBase skillBase, IPlayerSkillStateService playerSkillStateService,PlayerSkill playerSkill) : base(skillBase, playerSkillStateService)
     {
         _playerSkill= playerSkill;  
@@ -23,7 +24,7 @@ public class PlayerSkillUseableState : PlayerSkillStateBase
         {
             if (_skillBase.IsSkillKeyPressed() && _skillBase.CanUse)
             {
-                _skillBase.PlayerSkillStateService.SwitchState(_skillBase.PlayerSkillUseState);
+                _skillBase.PlayerSkillStateService.SwitchState(_skillBase.PlayerSkillAnimationState);
             }
         }
     }

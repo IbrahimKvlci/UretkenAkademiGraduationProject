@@ -28,4 +28,9 @@ public class PlayerTriggerCheck : MonoBehaviour
             player.EnemyTriggeredToBeAttacked = null;
         }
     }
+
+    public bool IsEnemiesTriggeredToBeAttacked(out List<Enemy> enemies,float range)
+    {
+        return _playerTriggerCheckService.IsEnemiesTriggeredToBeAttacked(transform, out enemies, range, layerMask);
+    }
 }

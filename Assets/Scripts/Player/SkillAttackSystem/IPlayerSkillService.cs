@@ -5,4 +5,5 @@ using UnityEngine;
 public interface IPlayerSkillService
 {
     void UseSkill(SkillBase skill);
+    void PlayAnimation(SkillBase skill,PlayerAnimation playerAnimation);
 }

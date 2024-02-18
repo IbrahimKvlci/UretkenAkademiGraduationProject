@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class SkillBaseSO : ScriptableObject
 {
     public float cooldown;
+    public float timeToUse;
 
     public ISkillService SkillService { get; set; }
     public IPlayerSkillStateService PlayerSkillStateService { get; set; }

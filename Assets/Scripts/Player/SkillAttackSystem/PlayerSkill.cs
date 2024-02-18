@@ -8,6 +8,7 @@ public class PlayerSkill : MonoBehaviour
     [field: SerializeField] public SkillBase FireSkill { get; set; }
     [field: SerializeField] public SkillBase DashSkill { get; set; }
 
+    [field: SerializeField] public PlayerAnimation PlayerAnimation { get; set; }
 
     [field:SerializeField] public Player Player { get; set; }
 
