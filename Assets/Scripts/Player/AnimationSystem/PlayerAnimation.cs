@@ -15,7 +15,8 @@ public class PlayerAnimation : MonoBehaviour
         AttackCounter,
         Idle,
         Run,
-        Dash
+        Dash,
+        Death
     }
 
     private Animator animator;
@@ -40,6 +41,7 @@ public class PlayerAnimation : MonoBehaviour
         animator.SetTrigger(PlayerAnimationEnum.Dash.ToString());
 
     }
+
 
     public void SetAnimationTrigger(PlayerAnimationEnum animation)
     {

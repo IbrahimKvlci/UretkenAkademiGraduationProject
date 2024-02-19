@@ -7,6 +7,8 @@ public class PlayerAnimationHandler : MonoBehaviour
 {
     public event EventHandler OnPlayerMeleeAttack;
     public event EventHandler OnPlayerMeleeAttackFinished;
+    public event EventHandler OnPlayerDeathAnimationFinished;
+
 
 
     private void PlayerMeleeAttackEvent()
@@ -17,5 +19,10 @@ public class PlayerAnimationHandler : MonoBehaviour
     private void PlayerMeleeAttackFinishedEvent()
     {
         OnPlayerMeleeAttackFinished?.Invoke(this, EventArgs.Empty);
+    }
+
+    private void PlayerDeathAnimationFinished()
+    {
+        OnPlayerDeathAnimationFinished?.Invoke(this, EventArgs.Empty);
     }
 }

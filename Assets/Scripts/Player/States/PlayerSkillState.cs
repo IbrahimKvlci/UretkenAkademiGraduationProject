@@ -6,7 +6,7 @@ public class PlayerSkillState : PlayerStateBase
 {
 
 
-    public PlayerSkillState(Player player, IPlayerStateService playerStateService,IPlayerAnimationService playerAnimationService) : base(player, playerStateService, playerAnimationService)
+    public PlayerSkillState(Player player, IPlayerStateService playerStateService,IPlayerAnimationService playerAnimationService, IPlayerHealthService playerHealthService) : base(player, playerStateService, playerAnimationService, playerHealthService)
     {
 
     }

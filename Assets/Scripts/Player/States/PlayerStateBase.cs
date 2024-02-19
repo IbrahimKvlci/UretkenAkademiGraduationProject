@@ -8,13 +8,15 @@ public class PlayerStateBase:IPlayerState
     protected PlayerSkill _playerSkill;
     protected IPlayerStateService _playerStateService;
     protected IPlayerAnimationService _playerAnimationService;
+    protected IPlayerHealthService _playerHealthService;
 
-    public PlayerStateBase(Player player, IPlayerStateService playerStateService,IPlayerAnimationService playerAnimationService)
+    public PlayerStateBase(Player player, IPlayerStateService playerStateService,IPlayerAnimationService playerAnimationService,IPlayerHealthService playerHealthService)
     {
         _player = player;
         _playerSkill = _player.PlayerSkill;
         _playerStateService = playerStateService;
         _playerAnimationService = playerAnimationService;
+        _playerHealthService = playerHealthService;
     }
 
     public virtual void EnterState()
@@ -27,5 +29,12 @@ public class PlayerStateBase:IPlayerState
 
     public virtual void UpdateState()
     {
+        if(this is not PlayerDeathState)
+        {
+            if (!_playerHealthService.IsAlive)
+            {
+                _playerStateService.SwitchState(_player.PlayerDeathState);
+            }
+        }
     }
 }

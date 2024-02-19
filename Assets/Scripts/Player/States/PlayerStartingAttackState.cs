@@ -8,7 +8,7 @@ public class PlayerStartingAttackState : PlayerStateBase
 
     private PlayerAnimationHandler _playerAnimationHandler;
 
-    public PlayerStartingAttackState(Player player, IPlayerStateService playerStateService, IPlayerAnimationService playerAnimationService, PlayerAnimationHandler playerAnimationHandler) : base(player, playerStateService, playerAnimationService)
+    public PlayerStartingAttackState(Player player, IPlayerStateService playerStateService, IPlayerAnimationService playerAnimationService, PlayerAnimationHandler playerAnimationHandler, IPlayerHealthService playerHealthService) : base(player, playerStateService, playerAnimationService, playerHealthService)
     {
         _playerAnimationHandler = playerAnimationHandler;
     }

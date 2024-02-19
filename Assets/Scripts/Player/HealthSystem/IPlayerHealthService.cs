@@ -6,6 +6,11 @@ using UnityEngine;
 public interface IPlayerHealthService:IDamageable
 {
     event EventHandler OnHealthChanged;
+    event EventHandler OnPlayerDeath;
+
 
     float Health { get; set; }
+    bool IsAlive { get; set; }
+
+    void Die();
 }

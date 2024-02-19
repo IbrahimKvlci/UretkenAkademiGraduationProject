@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class PlayerHealthManager : IPlayerHealthService
 {
+    public event EventHandler OnHealthChanged;
+    public event EventHandler OnPlayerDeath;
+
     private float _health;
     public float Health
     {
@@ -19,7 +22,14 @@ public class PlayerHealthManager : IPlayerHealthService
         }
     }
 
-    public event EventHandler OnHealthChanged;
+    public bool IsAlive { get; set; }
+
+    public void Die()
+    {
+        IsAlive = false;
+
+        OnPlayerDeath?.Invoke(this, EventArgs.Empty);
+    }
 
     public void TakeDamage(float damage)
     {
@@ -27,7 +37,7 @@ public class PlayerHealthManager : IPlayerHealthService
 
         if(Health <= 0)
         {
-            Debug.Log("Die!");
+            Die();
         }
     }
 }

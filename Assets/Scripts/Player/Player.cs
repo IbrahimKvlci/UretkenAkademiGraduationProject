@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     [field: SerializeField] public PlayerSkill PlayerSkill { get; private set; }
 
     [SerializeField] private PlayerAnimation playerAnimation;
-    [SerializeField] private PlayerAnimationHandler playerAnimationHandler;
+    [field:SerializeField] public PlayerAnimationHandler PlayerAnimationHandler { get; set; }
     [field:SerializeField] public PlayerTriggerCheck PlayerTriggerCheck { get; set; }
 
     public WeaponController WeaponController { get; set; }
@@ -33,6 +33,8 @@ public class Player : MonoBehaviour
     public IPlayerState PlayerStartingAttackState { get; set; }
     public IPlayerState PlayerAttackState { get; set; }
     public IPlayerState PlayerSkillState { get; set; }
+    public IPlayerState PlayerDeathState { get; set; }
+
 
 
     private IGameInputSystem _gameInputSystem;
@@ -61,11 +63,12 @@ public class Player : MonoBehaviour
         PlayerHealthService = new PlayerHealthManager();
         PlayerGoldService= new PlayerGoldManager();
         
-        PlayerIdleState = new PlayerIdleState(this, playerStateService, playerAttackService, PlayerMovementService, playerAnimationService);
-        PlayerWalkState = new PlayerWalkState(this, playerStateService,PlayerMovementService,playerAttackService, playerAnimationService);
-        PlayerStartingAttackState = new PlayerStartingAttackState(this, playerStateService, playerAnimationService, playerAnimationHandler);
-        PlayerAttackState=new PlayerAttackState(this,playerStateService,playerAttackService, playerAnimationService, playerAnimationHandler);
-        PlayerSkillState = new PlayerSkillState(this, playerStateService, playerAnimationService);
+        PlayerIdleState = new PlayerIdleState(this, playerStateService, playerAttackService, PlayerMovementService, playerAnimationService,PlayerHealthService);
+        PlayerWalkState = new PlayerWalkState(this, playerStateService,PlayerMovementService,playerAttackService, playerAnimationService, PlayerHealthService);
+        PlayerStartingAttackState = new PlayerStartingAttackState(this, playerStateService, playerAnimationService, PlayerAnimationHandler, PlayerHealthService);
+        PlayerAttackState=new PlayerAttackState(this,playerStateService,playerAttackService, playerAnimationService, PlayerAnimationHandler, PlayerHealthService);
+        PlayerSkillState = new PlayerSkillState(this, playerStateService, playerAnimationService, PlayerHealthService);
+        PlayerDeathState = new PlayerDeathState(this, playerStateService, playerAnimationService, PlayerHealthService);
 
         WeaponController=GetComponent<WeaponController>();
         
@@ -73,6 +76,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        PlayerHealthService.IsAlive= true;
         PlayerHealthService.Health = PlayerSO.maxHealth;
 
         playerStateService.Initialize(PlayerIdleState);

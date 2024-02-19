@@ -1665,7 +1665,6 @@ RectTransform:
   m_Children:
   - {fileID: 1494038146}
   - {fileID: 1158219123}
-  - {fileID: 1557166453}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3216,6 +3215,7 @@ RectTransform:
   - {fileID: 995438054}
   - {fileID: 822025108}
   - {fileID: 162802289}
+  - {fileID: 1557166453}
   m_Father: {fileID: 613417132}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4847,18 +4847,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1751706290}
   m_CullTransparentMesh: 1
---- !u!114 &1759522388 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6461319427581252065, guid: 468bca496a051104cbce57f50d143f85,
-    type: 3}
-  m_PrefabInstance: {fileID: 733602137818368361}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c11f5a8ff0acae141bc4f7db179467bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1774155569
 GameObject:
   m_ObjectHideFlags: 0
@@ -5866,11 +5854,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8030590373315171337, guid: 468bca496a051104cbce57f50d143f85,
-        type: 3}
-      propertyPath: <PlayerTriggerCheck>k__BackingField
-      value: 
-      objectReference: {fileID: 1759522388}
     - target: {fileID: 8708986853582330566, guid: 468bca496a051104cbce57f50d143f85,
         type: 3}
       propertyPath: m_Name
@@ -5960,7 +5943,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 613417132}
+    m_TransformParent: {fileID: 1158219123}
     m_Modifications:
     - target: {fileID: 2333183177530765213, guid: d0aa80a72365c2848a4260f0430b9524,
         type: 3}

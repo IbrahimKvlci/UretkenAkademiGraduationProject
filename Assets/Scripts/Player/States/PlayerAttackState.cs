@@ -11,7 +11,7 @@ public class PlayerAttackState : PlayerStateBase
 
     private PlayerAnimationHandler _playerAnimationHandler;
 
-    public PlayerAttackState(Player player, IPlayerStateService playerStateService, IPlayerAttackService playerAttackService, IPlayerAnimationService playerAnimationService, PlayerAnimationHandler playerAnimationHandler) : base(player, playerStateService, playerAnimationService)
+    public PlayerAttackState(Player player, IPlayerStateService playerStateService, IPlayerAttackService playerAttackService, IPlayerAnimationService playerAnimationService, PlayerAnimationHandler playerAnimationHandler, IPlayerHealthService playerHealthService) : base(player, playerStateService, playerAnimationService, playerHealthService)
     {
         _playerAttackService = playerAttackService;
         _playerAnimationHandler = playerAnimationHandler;

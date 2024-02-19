@@ -260,7 +260,7 @@ MonoBehaviour:
   <PlayerSkill>k__BackingField: {fileID: 7456073850837498741}
   playerAnimation: {fileID: 8451493034732136789}
   playerAnimationHandler: {fileID: 2384083806607560913}
-  playerTriggerCheck: {fileID: 6461319427581252065}
+  <PlayerTriggerCheck>k__BackingField: {fileID: 6461319427581252065}
 --- !u!114 &7115515890777839105
 MonoBehaviour:
   m_ObjectHideFlags: 0

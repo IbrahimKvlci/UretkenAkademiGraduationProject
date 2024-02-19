@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: EnemySkeleton
   m_EditorClassIdentifier: 
   maxHealth: 300
-  speed: 2
+  speed: 1
   chaseSpeed: 4
   rotationSpeed: 5
   maxMoveRange: 20
   chaseRange: 10
   attackRange: 5
   attackSpeed: 3
-  attackDamage: 10
+  attackDamage: 100
   attackAnimationTime: 1
   deathTime: 3
   gold: 2

@@ -7,7 +7,7 @@ public class PlayerIdleState : PlayerStateBase
     IPlayerAttackService _playerAttackService;
     IPlayerMovementService _playerMovementService;
 
-    public PlayerIdleState(Player player, IPlayerStateService playerStateService,IPlayerAttackService playerAttackService,IPlayerMovementService playerMovementService,IPlayerAnimationService playerAnimationService) : base(player, playerStateService,playerAnimationService)
+    public PlayerIdleState(Player player, IPlayerStateService playerStateService,IPlayerAttackService playerAttackService,IPlayerMovementService playerMovementService,IPlayerAnimationService playerAnimationService,IPlayerHealthService playerHealthService) : base(player, playerStateService,playerAnimationService, playerHealthService)
     {
         _playerAttackService = playerAttackService;
         _playerMovementService = playerMovementService;

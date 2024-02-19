@@ -7,7 +7,7 @@ public class PlayerWalkState : PlayerStateBase
     private IPlayerMovementService _playerMovementService;
     private IPlayerAttackService _playerAttackService;
 
-    public PlayerWalkState(Player player, IPlayerStateService playerStateService,IPlayerMovementService playerMovementService,IPlayerAttackService playerAttackService,IPlayerAnimationService playerAnimationService) : base(player, playerStateService, playerAnimationService)
+    public PlayerWalkState(Player player, IPlayerStateService playerStateService,IPlayerMovementService playerMovementService,IPlayerAttackService playerAttackService,IPlayerAnimationService playerAnimationService, IPlayerHealthService playerHealthService) : base(player, playerStateService, playerAnimationService, playerHealthService)
     {
         _playerMovementService = playerMovementService;
         _playerAttackService = playerAttackService;
