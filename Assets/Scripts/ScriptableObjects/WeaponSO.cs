@@ -6,7 +6,7 @@ using UnityEngine;
 public class WeaponSO : ProductSO
 {
     public GameObject prefab;
-    public float damage;
+    public int damage;
     public float speed;
     public float length;
 

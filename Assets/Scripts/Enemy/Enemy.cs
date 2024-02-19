@@ -9,7 +9,6 @@ public abstract class Enemy : MonoBehaviour
     [field: SerializeField] public EnemyAnimationBase EnemyAnimation { get; private set; }
     [SerializeField] private Player player;
 
-    public float Health {  get; set; }
     public bool IsDead { get; set; }
 
     public bool IsPlayerTriggered { get; set; }
@@ -50,7 +49,7 @@ public abstract class Enemy : MonoBehaviour
     private void Start()
     {
         IsDead= false;
-        Health = EnemySO.maxHealth;
+        EnemyHealthService.Health = EnemySO.maxHealth;
         enemyStateService.Initialize(EnemyMoveState);
     }
 

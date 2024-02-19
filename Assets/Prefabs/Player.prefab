@@ -258,7 +258,6 @@ MonoBehaviour:
   <WeaponSO>k__BackingField: {fileID: 11400000, guid: 7d89a9dd7f2e1814db0f1934732fdc82,
     type: 2}
   <PlayerSkill>k__BackingField: {fileID: 7456073850837498741}
-  <Gold>k__BackingField: 500
   playerAnimation: {fileID: 8451493034732136789}
   playerAnimationHandler: {fileID: 2384083806607560913}
   playerTriggerCheck: {fileID: 6461319427581252065}
@@ -325,7 +324,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 256
-  range: 0
+  range: 5
 --- !u!1001 &8291627387888672382
 PrefabInstance:
   m_ObjectHideFlags: 0

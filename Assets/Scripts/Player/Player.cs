@@ -10,11 +10,10 @@ public class Player : MonoBehaviour
     [field:SerializeField] public PlayerSO PlayerSO { get; private set; }
     [field: SerializeField] public WeaponSO WeaponSO { get;  set; }
     [field: SerializeField] public PlayerSkill PlayerSkill { get; private set; }
-    [field: SerializeField] public int Gold {  get;  set; }
 
     [SerializeField] private PlayerAnimation playerAnimation;
     [SerializeField] private PlayerAnimationHandler playerAnimationHandler;
-    [SerializeField] private PlayerTriggerCheck playerTriggerCheck;
+    [field:SerializeField] public PlayerTriggerCheck PlayerTriggerCheck { get; set; }
 
     public WeaponController WeaponController { get; set; }
 
@@ -22,6 +21,7 @@ public class Player : MonoBehaviour
 
     public IPlayerHealthService PlayerHealthService {  get; private set; }
     public IPlayerMovementService PlayerMovementService { get; set; }
+    public IPlayerGoldService PlayerGoldService { get; set; }
 
     private IPlayerStateService playerStateService;
     private IPlayerAttackService playerAttackService;
@@ -59,6 +59,7 @@ public class Player : MonoBehaviour
         playerAnimationService = new PlayerAnimationManager(playerAnimation);
         PlayerMovementService = new PlayerMovement(this, _gameInputSystem);
         PlayerHealthService = new PlayerHealthManager();
+        PlayerGoldService= new PlayerGoldManager();
         
         PlayerIdleState = new PlayerIdleState(this, playerStateService, playerAttackService, PlayerMovementService, playerAnimationService);
         PlayerWalkState = new PlayerWalkState(this, playerStateService,PlayerMovementService,playerAttackService, playerAnimationService);
@@ -81,7 +82,7 @@ public class Player : MonoBehaviour
 
     private void gameInputSystem_OnPlayerInteract(object sender, System.EventArgs e)
     {
-        if(playerTriggerCheck.IsInteractableObjectTriggered(out IInteractable interactable))
+        if(PlayerTriggerCheck.IsInteractableObjectTriggered(out IInteractable interactable))
         {
             interactable.Interact();
         }

@@ -6,9 +6,9 @@ public class WeaponShopManager : IProductShopService
 {
     public void Buy(ProductSO productSO, Player player)
     {
-        if (player.Gold >= productSO.price)
+        if (player.PlayerGoldService.Gold >= productSO.price)
         {
-            player.Gold -=productSO.price;
+            player.PlayerGoldService.Gold -= productSO.price;
             player.WeaponController.WeaponSOList.Add((WeaponSO)productSO);
         }
         else

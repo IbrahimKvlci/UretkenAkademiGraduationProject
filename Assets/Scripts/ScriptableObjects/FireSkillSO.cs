@@ -6,7 +6,7 @@ using UnityEngine;
 public class FireSkillSO : SkillBaseSO
 {
     public GameObject prefab;
-    public float damage;
+    public int damage;
     public float range;
 
     public override void UseSkill()

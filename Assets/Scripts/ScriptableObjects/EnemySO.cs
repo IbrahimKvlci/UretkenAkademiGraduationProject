@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu()]
 public class EnemySO : ScriptableObject
 {
-    public float maxHealth;
+    public int maxHealth;
     public float speed;
     public float chaseSpeed;
     public float rotationSpeed = 5f;
@@ -16,4 +16,5 @@ public class EnemySO : ScriptableObject
     public float attackDamage;
     public float attackAnimationTime;
     public float deathTime;
+    public int gold;
 }
