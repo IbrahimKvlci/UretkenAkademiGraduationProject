@@ -8,6 +8,7 @@ public interface IGameInputSystem
     event EventHandler OnJumpButtonPressed;
     event EventHandler OnMouseWheelScrolled;
     event EventHandler OnPlayerInteract;
+    event EventHandler OnGamePauseKeyPressed;
 
     Vector2 GetMovementVectorNormalized();
     int GetMouseWheelValueNormalized(); 

@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 public class GameOverUI : MonoBehaviour
 {
+
     [SerializeField] private Button gameOverBtn;
 
     private void Start()
     {
-        Player.Instance.PlayerAnimationHandler.OnPlayerDeathAnimationFinished += PlayerAnimationHandler_OnPlayerDeathAnimationFinished;
+        GameManager.Instance.OnGameOverChanged += GameManager_OnGameOverChanged;
 
         gameOverBtn.onClick.AddListener(() =>
         {
@@ -19,11 +20,10 @@ public class GameOverUI : MonoBehaviour
         Hide();
     }
 
-    private void PlayerAnimationHandler_OnPlayerDeathAnimationFinished(object sender, System.EventArgs e)
+    private void GameManager_OnGameOverChanged(object sender, System.EventArgs e)
     {
         Show();
     }
-
 
     private void Hide()
     {

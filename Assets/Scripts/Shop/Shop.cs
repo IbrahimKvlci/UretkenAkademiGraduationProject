@@ -16,12 +16,19 @@ public class Shop : MonoBehaviour
     private void Start()
     {
         dealer.DealerService.OnInteract += DealerService_OnInteract;
-        gameObject.SetActive(false);
+        Hide();
     }
 
     private void DealerService_OnInteract(object sender, System.EventArgs e)
     {
-        gameObject.SetActive(!gameObject.active);
+        if (gameObject.active)
+        {
+            Hide();
+        }
+        else
+        {
+            Show();
+        }
         Debug.Log("yes");
 
     }
@@ -29,5 +36,18 @@ public class Shop : MonoBehaviour
     public void BuyButton(ProductSO productSO)
     {
         shopService.BuyProduct(productSO, Player.Instance);
+    }
+
+    public void Show()
+    {
+        gameObject.SetActive(true);
+        Player.Instance.IsPlayerPaused = true;
+    }
+
+    public void Hide()
+    {
+        gameObject.SetActive(false);
+        Player.Instance.IsPlayerPaused = false;
+
     }
 }

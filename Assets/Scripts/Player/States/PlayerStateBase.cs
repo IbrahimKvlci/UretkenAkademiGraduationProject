@@ -36,5 +36,14 @@ public class PlayerStateBase:IPlayerState
                 _playerStateService.SwitchState(_player.PlayerDeathState);
             }
         }
+
+        if(this is not PlayerPauseState)
+        {
+            //State is not pause state
+            if (_player.IsPlayerPaused)
+            {
+                _playerStateService.SwitchState(_player.PlayerPauseState);
+            }
+        }
     }
 }

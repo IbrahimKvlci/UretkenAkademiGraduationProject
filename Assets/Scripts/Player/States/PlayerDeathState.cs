@@ -14,14 +14,8 @@ public class PlayerDeathState : PlayerStateBase
     public override void EnterState()
     {
         base.EnterState();
-        _player.PlayerAnimationHandler.OnPlayerDeathAnimationFinished += PlayerAnimationHandler_OnPlayerDeathAnimationFinished;
 
         _playerAnimationService.SetAnimationTrigger(PlayerAnimation.PlayerAnimationEnum.Death);
-    }
-
-    private void PlayerAnimationHandler_OnPlayerDeathAnimationFinished(object sender, System.EventArgs e)
-    {
-        GameManager.Instance.TogglePause();
     }
 
     public override void UpdateState()
@@ -33,7 +27,6 @@ public class PlayerDeathState : PlayerStateBase
     public override void ExitState()
     {
         base.ExitState();
-        _player.PlayerAnimationHandler.OnPlayerDeathAnimationFinished -= PlayerAnimationHandler_OnPlayerDeathAnimationFinished;
 
     }
 }

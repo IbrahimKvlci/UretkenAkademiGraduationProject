@@ -34,8 +34,10 @@ public class Player : MonoBehaviour
     public IPlayerState PlayerAttackState { get; set; }
     public IPlayerState PlayerSkillState { get; set; }
     public IPlayerState PlayerDeathState { get; set; }
+    public IPlayerState PlayerPauseState { get; set; }
 
 
+    public bool IsPlayerPaused { get; set; } = false;
 
     private IGameInputSystem _gameInputSystem;
 
@@ -69,6 +71,7 @@ public class Player : MonoBehaviour
         PlayerAttackState=new PlayerAttackState(this,playerStateService,playerAttackService, playerAnimationService, PlayerAnimationHandler, PlayerHealthService);
         PlayerSkillState = new PlayerSkillState(this, playerStateService, playerAnimationService, PlayerHealthService);
         PlayerDeathState = new PlayerDeathState(this, playerStateService, playerAnimationService, PlayerHealthService);
+        PlayerPauseState = new PlayerPauseState(this, playerStateService, playerAnimationService, PlayerHealthService);
 
         WeaponController=GetComponent<WeaponController>();
         
