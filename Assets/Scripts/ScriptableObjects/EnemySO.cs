@@ -15,6 +15,7 @@ public class EnemySO : ScriptableObject
     public float attackSpeed;
     public float attackDamage;
     public float attackAnimationTime;
+    public float attackAnimationAllTime;
     public float deathTime;
     public int gold;
 }

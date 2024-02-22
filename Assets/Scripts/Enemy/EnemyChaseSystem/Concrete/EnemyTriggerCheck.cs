@@ -11,10 +11,14 @@ public class EnemyTriggerCheck : MonoBehaviour
 
     private IEnemyTriggerCheckService _enemyTriggerCheckService;
 
-    [Inject]
-    public void Construct(IEnemyTriggerCheckService enemyTriggerCheckService)
+    private void Awake()
     {
-        _enemyTriggerCheckService = enemyTriggerCheckService;
+        _enemyTriggerCheckService = new EnemyTriggerCheckManager();
+    }
+
+    private void Start()
+    {
+        Debug.Log(_enemyTriggerCheckService);
     }
 
     private void Update()

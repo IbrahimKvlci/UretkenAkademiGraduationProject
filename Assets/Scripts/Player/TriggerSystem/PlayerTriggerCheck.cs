@@ -48,6 +48,7 @@ public class PlayerTriggerCheck : MonoBehaviour
         //Check any interactable triggered
         if(IsInteractableObjectTriggered(out IInteractable interactable)&&!eventCheckedInteractable)
         {
+            player.PlayerTriggerCheck = this;
             OnInteractableObjectTriggered?.Invoke(this, new OnInteractableObjectTriggeredEventArgs
             {
                 interactable= interactable

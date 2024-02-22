@@ -19,7 +19,6 @@ public class EnemyPrepareAttackState : EnemyStateBase
     public override void EnterState()
     {
         base.EnterState();
-        enemyAttackTimer = 0;
 
         _enemyMovementService.CanMove = false;
         _enemy.EnemyAnimation.EnemyAnimationService.SetStand(true);

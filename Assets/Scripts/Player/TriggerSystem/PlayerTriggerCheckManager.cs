@@ -35,6 +35,7 @@ public class PlayerTriggerCheckManager : IPlayerTriggerCheckService
         if(Physics.Raycast(point.position,point.forward,out RaycastHit hitInfo,length))
         {
             //An object is triggered
+            
             if(hitInfo.transform.TryGetComponent<IInteractable>(out interactable))
             {
                 return true;

@@ -11,6 +11,9 @@ public class PlayerMovement:IPlayerMovementService
     private CharacterController characterController;
 
     private Vector3 movementVector;
+    private Vector3 playerVelocity;
+    private bool groundedPlayer;
+    private float gravityValue = -9.81f;
 
     private IGameInputSystem _gameInputSystem;
 
@@ -28,6 +31,12 @@ public class PlayerMovement:IPlayerMovementService
 
     public void HandleMovement()
     {
+        groundedPlayer = characterController.isGrounded;
+        if (groundedPlayer && playerVelocity.y < 0)
+        {
+            playerVelocity.y = 0f;
+        }
+
         Vector2 movementInputVector = _gameInputSystem.GetMovementVectorNormalized();
         movementVector = new Vector3(movementInputVector.x,0,movementInputVector.y);
 
@@ -39,6 +48,9 @@ public class PlayerMovement:IPlayerMovementService
         {
             _player.transform.forward = Vector3.Slerp(_player.transform.forward, movementVector, Time.deltaTime * _player.PlayerSO.rotationSpeed); ;
         }
+
+        playerVelocity.y += gravityValue * Time.deltaTime;
+        characterController.Move(playerVelocity * Time.deltaTime);
     }
 
     public void Dash(float speed)

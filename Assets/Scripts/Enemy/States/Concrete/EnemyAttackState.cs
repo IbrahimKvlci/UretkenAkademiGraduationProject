@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EnemyAttackState : EnemyStateBase
 {
-    float enemyAttackAnimationTimer;
+    private float enemyAttackAnimationTimer;
+    private bool canAttack;
 
     private IEnemyAttackService _enemyAttackService;
 
@@ -16,6 +17,7 @@ public class EnemyAttackState : EnemyStateBase
     public override void EnterState()
     {
         base.EnterState();
+        canAttack = true;
         enemyAttackAnimationTimer = 0;
         _enemy.EnemyAnimation.EnemyAnimationService.TriggerAttack();
         Debug.Log("Enemy attack state");
@@ -25,15 +27,19 @@ public class EnemyAttackState : EnemyStateBase
     {
         base.UpdateState();
         enemyAttackAnimationTimer += Time.deltaTime;
-        if (enemyAttackAnimationTimer > _enemy.EnemySO.attackAnimationTime)
+        if (enemyAttackAnimationTimer > _enemy.EnemySO.attackAnimationTime&&canAttack)
         {
             //Timer is over
-            enemyAttackAnimationTimer = 0;
+            canAttack=false;
             if (_enemy.IsPlayerTriggeredToBeAttacked)
             {
                 //Enemy can damage player
                 _enemyAttackService.Attack(Player.Instance, _enemy.EnemySO.attackDamage);
             }
+        }
+        if(enemyAttackAnimationTimer > _enemy.EnemySO.attackAnimationAllTime)
+        {
+            enemyAttackAnimationTimer = 0;
             _enemyStateService.SwitchState(_enemy.EnemyPreapareAttackState);
         }
 

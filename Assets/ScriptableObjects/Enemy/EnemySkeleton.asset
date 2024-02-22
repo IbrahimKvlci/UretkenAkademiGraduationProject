@@ -18,9 +18,10 @@ MonoBehaviour:
   rotationSpeed: 5
   maxMoveRange: 20
   chaseRange: 10
-  attackRange: 5
-  attackSpeed: 3
-  attackDamage: 100
+  attackRange: 3
+  attackSpeed: 2
+  attackDamage: 0
   attackAnimationTime: 1
+  attackAnimationAllTime: 2.5
   deathTime: 3
   gold: 2
