@@ -10,6 +10,8 @@ public class WeaponShopManager : IProductShopService
         {
             player.PlayerGoldService.Gold -= productSO.price;
             player.WeaponController.WeaponSOList.Add((WeaponSO)productSO);
+
+            PlayerPrefsSavingSystem.SetList<WeaponSO>(PlayerPrefsSavingSystem.PlayerPrefsNameEnum.Weapons, player.WeaponController.WeaponSOList);
         }
         else
         {

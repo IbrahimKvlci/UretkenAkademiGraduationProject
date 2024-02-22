@@ -124,10 +124,20 @@ PrefabInstance:
       propertyPath: m_Height
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3341572350743913540, guid: bf1581f18c31f5a42bd330660813f1ca,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 3710562579802044280, guid: bf1581f18c31f5a42bd330660813f1ca,
         type: 3}
       propertyPath: m_Height
       value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3710562579802044280, guid: bf1581f18c31f5a42bd330660813f1ca,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 3710562579802044280, guid: bf1581f18c31f5a42bd330660813f1ca,
         type: 3}
@@ -137,7 +147,7 @@ PrefabInstance:
     - target: {fileID: 4784930380893011158, guid: bf1581f18c31f5a42bd330660813f1ca,
         type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4784930380893011158, guid: bf1581f18c31f5a42bd330660813f1ca,
         type: 3}
@@ -243,7 +253,7 @@ MonoBehaviour:
   <EnemySO>k__BackingField: {fileID: 11400000, guid: 70d39bdecd2c93a40add08dcf6300707,
     type: 2}
   <EnemyAnimation>k__BackingField: {fileID: 4216957621734661148}
-  player: {fileID: 0}
+  <Player>k__BackingField: {fileID: 0}
 --- !u!4 &7960695500193116554 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4784930380893011158, guid: bf1581f18c31f5a42bd330660813f1ca,

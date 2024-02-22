@@ -28,6 +28,8 @@ public class WeaponController : MonoBehaviour
 
     private void Start()
     {
+        WeaponSOList = PlayerPrefsSavingSystem.GetList<WeaponSO>(PlayerPrefsSavingSystem.PlayerPrefsNameEnum.Weapons);
+
         currentWeapon = Player.Instance.WeaponSO;
         _gameInputSystem.OnMouseWheelScrolled += GameInputSystem_OnMouseWheelScrolled;
 

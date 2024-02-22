@@ -6,6 +6,8 @@ using Zenject;
 public class PlayerSkill : MonoBehaviour
 {
     [field: SerializeField] public List<SkillBase> skillBaseList {  get; private set; }
+    [field: SerializeField] public List<SkillBase> PlayerSkills { get; set; }
+
 
 
     [field: SerializeField] public PlayerAnimation PlayerAnimation { get; set; }
@@ -24,6 +26,19 @@ public class PlayerSkill : MonoBehaviour
 
     private void Start()
     {
+        PlayerSkills = PlayerPrefsSavingSystem.GetList<SkillBase>(PlayerPrefsSavingSystem.PlayerPrefsNameEnum.Skills);
+
+        foreach (var playerSkill in PlayerSkills)
+        {
+            foreach (var skill in skillBaseList)
+            {
+                if (playerSkill == skill)
+                {
+                    skill.CanUse = true;
+                }
+            }
+        }
+
         foreach (SkillBase skillBase in skillBaseList)
         {
             skillBase.PlayerSkillStateService.Initialize(skillBase.PlayerSkillUseableState);

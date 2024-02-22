@@ -20,7 +20,7 @@ MonoBehaviour:
   chaseRange: 10
   attackRange: 3
   attackSpeed: 2
-  attackDamage: 0
+  attackDamage: 15
   attackAnimationTime: 1
   attackAnimationAllTime: 2.5
   deathTime: 3
