@@ -29,6 +29,8 @@ public class FireSkillManager:ISkillService
                 enemy.EnemyHealthService.TakeDamage(enemy, ((FireSkillSO)fireSkillSO).damage);
             }
         }
+
+        Player.Instance.PlayerSoundController.PlayPlayerFireSkillSound(Player.Instance.transform.position);
     }
 
     

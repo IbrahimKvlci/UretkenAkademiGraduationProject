@@ -22,6 +22,9 @@ public class EnemyPrepareAttackState : EnemyStateBase
 
         _enemyMovementService.CanMove = false;
         _enemy.EnemyAnimation.EnemyAnimationService.SetStand(true);
+
+        _enemy.EnemySoundController.PlayEnemyAttackSound();
+
     }
 
     public override void UpdateState()

@@ -16,6 +16,7 @@ public class EnemyDeathState : EnemyStateBase
         base.EnterState();
         _enemy.EnemyAnimation.EnemyAnimationService.TriggerDeath();
 
+        _enemy.EnemySoundController.PlayEnemyDeathSound();
     }
 
     public override void UpdateState()

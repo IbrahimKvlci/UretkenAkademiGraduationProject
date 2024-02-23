@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerAnimation playerAnimation;
     [field:SerializeField] public PlayerAnimationHandler PlayerAnimationHandler { get; set; }
     [field:SerializeField] public PlayerTriggerCheck PlayerTriggerCheck { get; set; }
+    [field: SerializeField] public PlayerSoundController PlayerSoundController {  get; set; }
 
     public WeaponController WeaponController { get; set; }
 

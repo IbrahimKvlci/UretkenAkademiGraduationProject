@@ -17,13 +17,14 @@ public class PlayerWalkState : PlayerStateBase
     {
         base.EnterState();
         _playerAnimationService.SetAnimationBool(PlayerAnimation.PlayerAnimationEnum.Run, true);
-        Debug.Log("WalkState");
     }
 
     public override void UpdateState()
     {
         base.UpdateState();
         _playerMovementService.HandleMovement();
+        _player.PlayerSoundController.PlayPlayerWalkSound(_player.transform.position);
+
 
         if (_playerAttackService.IsAttacking())
         {

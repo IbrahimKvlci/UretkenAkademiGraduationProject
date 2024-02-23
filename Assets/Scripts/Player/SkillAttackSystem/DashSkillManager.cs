@@ -19,5 +19,6 @@ public class DashSkillManager : ISkillService
 
         Player.Instance.PlayerMovementService.Dash(dashSkillSO.speed);
 
+        Player.Instance.PlayerSoundController.PlayPlayerDashSound(Player.Instance.transform.position);
     }
 }

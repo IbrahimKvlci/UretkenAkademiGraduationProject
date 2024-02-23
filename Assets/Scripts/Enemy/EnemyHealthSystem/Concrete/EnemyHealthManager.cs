@@ -41,6 +41,8 @@ public class EnemyHealthManager : IEnemyHealthService
     {
         enemy.EnemyHealthService.Health -=damage;
 
+        enemy.EnemySoundController.PlayEnemyHitSound();
+
         if(enemy.EnemyHealthService.Health <= 0)
         {
             Die(enemy);

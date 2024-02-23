@@ -21,6 +21,8 @@ public class PlayerStartingAttackState : PlayerStateBase
         _playerAnimationService.SetAnimationTrigger(PlayerAnimation.PlayerAnimationEnum.IsAttacking);
 
         _playerSkill.CanUse = false;
+
+        _player.PlayerSoundController.PlayPlayerAttackSound(_player.transform.position);
     }
 
     public override void UpdateState()

@@ -16,6 +16,8 @@ public class PlayerDeathState : PlayerStateBase
         base.EnterState();
 
         _playerAnimationService.SetAnimationTrigger(PlayerAnimation.PlayerAnimationEnum.Death);
+
+        _player.PlayerSoundController.PlayPlayerDeathSound(_player.transform.position);
     }
 
     public override void UpdateState()

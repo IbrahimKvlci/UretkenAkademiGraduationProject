@@ -31,6 +31,52 @@ Transform:
   m_Father: {fileID: 8402448415471729045}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5025743672573847497
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7673652026377361661}
+  - component: {fileID: 5158493428185190757}
+  m_Layer: 0
+  m_Name: PlayerSoundController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7673652026377361661
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5025743672573847497}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 653236293940730112}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5158493428185190757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5025743672573847497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7249fed87b8fc14c9a0f61da96d0c41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSoundSO: {fileID: 11400000, guid: 82c949a29b65d134299b03894b55fc90, type: 2}
+  playerWalkTime: 0.4
 --- !u!1 &5929448869636878332
 GameObject:
   m_ObjectHideFlags: 0
@@ -80,6 +126,7 @@ MonoBehaviour:
   <skillBaseList>k__BackingField:
   - {fileID: 6437907647216361195}
   - {fileID: 7247189426279684950}
+  <PlayerSkills>k__BackingField: []
   <PlayerAnimation>k__BackingField: {fileID: 8451493034732136789}
   <Player>k__BackingField: {fileID: 8030590373315171337}
 --- !u!114 &6437907647216361195
@@ -212,8 +259,9 @@ Transform:
   - {fileID: 5871401367411996830}
   - {fileID: 2257015692706258424}
   - {fileID: 8402448415471729045}
+  - {fileID: 7673652026377361661}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &7933113394542304163
 CharacterController:
@@ -261,6 +309,7 @@ MonoBehaviour:
   playerAnimation: {fileID: 8451493034732136789}
   <PlayerAnimationHandler>k__BackingField: {fileID: 2384083806607560913}
   <PlayerTriggerCheck>k__BackingField: {fileID: 6461319427581252065}
+  <PlayerSoundController>k__BackingField: {fileID: 5158493428185190757}
 --- !u!114 &7115515890777839105
 MonoBehaviour:
   m_ObjectHideFlags: 0

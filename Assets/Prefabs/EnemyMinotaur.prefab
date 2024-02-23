@@ -13,6 +13,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyMinotaur
       objectReference: {fileID: 0}
+    - target: {fileID: 2165038011268229938, guid: bf1581f18c31f5a42bd330660813f1ca,
+        type: 3}
+      propertyPath: enemySoundSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 44043d9bc05c77947b6c2b3aeb02be07,
+        type: 2}
     - target: {fileID: 3341572350743913540, guid: bf1581f18c31f5a42bd330660813f1ca,
         type: 3}
       propertyPath: m_Height
@@ -157,7 +163,20 @@ MonoBehaviour:
   <EnemySO>k__BackingField: {fileID: 11400000, guid: 1896ae03bd405fb428f30fd56c19087e,
     type: 2}
   <EnemyAnimation>k__BackingField: {fileID: 8275011574850943945}
-  player: {fileID: 0}
+  <EnemySoundController>k__BackingField: {fileID: 1746970181602016895}
+  <Player>k__BackingField: {fileID: 0}
+--- !u!114 &1746970181602016895 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2165038011268229938, guid: bf1581f18c31f5a42bd330660813f1ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 447473222360372557}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf7a544cc528b934c93cf02661f16e37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4923211000335837595 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4784930380893011158, guid: bf1581f18c31f5a42bd330660813f1ca,

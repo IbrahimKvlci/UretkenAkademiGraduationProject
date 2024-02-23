@@ -119,6 +119,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyLizardA
       objectReference: {fileID: 0}
+    - target: {fileID: 2165038011268229938, guid: bf1581f18c31f5a42bd330660813f1ca,
+        type: 3}
+      propertyPath: enemySoundSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 3812ec1cee507bc4c88288c43c1e28e1,
+        type: 2}
     - target: {fileID: 3341572350743913540, guid: bf1581f18c31f5a42bd330660813f1ca,
         type: 3}
       propertyPath: m_Height
@@ -232,6 +238,18 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 942864164590170967}
   m_SourcePrefab: {fileID: 100100000, guid: bf1581f18c31f5a42bd330660813f1ca, type: 3}
+--- !u!114 &3609261460133897838 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2165038011268229938, guid: bf1581f18c31f5a42bd330660813f1ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 3178818637038718300}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf7a544cc528b934c93cf02661f16e37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4600708973236077216 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1424385268271927292, guid: bf1581f18c31f5a42bd330660813f1ca,
@@ -253,6 +271,7 @@ MonoBehaviour:
   <EnemySO>k__BackingField: {fileID: 11400000, guid: 70d39bdecd2c93a40add08dcf6300707,
     type: 2}
   <EnemyAnimation>k__BackingField: {fileID: 4216957621734661148}
+  <EnemySoundController>k__BackingField: {fileID: 3609261460133897838}
   <Player>k__BackingField: {fileID: 0}
 --- !u!4 &7960695500193116554 stripped
 Transform:

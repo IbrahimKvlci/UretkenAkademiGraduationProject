@@ -119,6 +119,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyWolfA
       objectReference: {fileID: 0}
+    - target: {fileID: 2165038011268229938, guid: bf1581f18c31f5a42bd330660813f1ca,
+        type: 3}
+      propertyPath: enemySoundSO
+      value: 
+      objectReference: {fileID: 11400000, guid: d1e8bb33f12be164aa310b4aa235cb0a,
+        type: 2}
     - target: {fileID: 3341572350743913540, guid: bf1581f18c31f5a42bd330660813f1ca,
         type: 3}
       propertyPath: m_Height
@@ -269,4 +275,17 @@ MonoBehaviour:
   <EnemySO>k__BackingField: {fileID: 11400000, guid: b7ea94022b160de49991b43c5c2a413e,
     type: 2}
   <EnemyAnimation>k__BackingField: {fileID: 2003217472961227218}
-  player: {fileID: 0}
+  <EnemySoundController>k__BackingField: {fileID: 7644920486028211876}
+  <Player>k__BackingField: {fileID: 0}
+--- !u!114 &7644920486028211876 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2165038011268229938, guid: bf1581f18c31f5a42bd330660813f1ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 8364297440405036438}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf7a544cc528b934c93cf02661f16e37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

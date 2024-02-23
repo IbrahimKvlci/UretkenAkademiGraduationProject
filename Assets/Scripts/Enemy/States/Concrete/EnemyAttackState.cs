@@ -20,7 +20,8 @@ public class EnemyAttackState : EnemyStateBase
         canAttack = true;
         enemyAttackAnimationTimer = 0;
         _enemy.EnemyAnimation.EnemyAnimationService.TriggerAttack();
-        Debug.Log("Enemy attack state");
+
+        _enemy.EnemySoundController.PlayEnemyAttackSound();
     }
 
     public override void UpdateState()

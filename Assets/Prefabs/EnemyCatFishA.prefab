@@ -139,6 +139,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyCatFishA
       objectReference: {fileID: 0}
+    - target: {fileID: 2165038011268229938, guid: bf1581f18c31f5a42bd330660813f1ca,
+        type: 3}
+      propertyPath: enemySoundSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 1ad656ea2f786cf45a805d5eea756677,
+        type: 2}
     - target: {fileID: 3341572350743913540, guid: bf1581f18c31f5a42bd330660813f1ca,
         type: 3}
       propertyPath: m_Height
@@ -167,7 +173,7 @@ PrefabInstance:
     - target: {fileID: 4784930380893011158, guid: bf1581f18c31f5a42bd330660813f1ca,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4784930380893011158, guid: bf1581f18c31f5a42bd330660813f1ca,
         type: 3}
@@ -279,4 +285,17 @@ MonoBehaviour:
   <EnemySO>k__BackingField: {fileID: 11400000, guid: 7864746862390a247819c575469d1bd0,
     type: 2}
   <EnemyAnimation>k__BackingField: {fileID: 878399451599730483}
+  <EnemySoundController>k__BackingField: {fileID: 6902247151462983798}
   <Player>k__BackingField: {fileID: 0}
+--- !u!114 &6902247151462983798 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2165038011268229938, guid: bf1581f18c31f5a42bd330660813f1ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 4738481352997552964}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf7a544cc528b934c93cf02661f16e37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

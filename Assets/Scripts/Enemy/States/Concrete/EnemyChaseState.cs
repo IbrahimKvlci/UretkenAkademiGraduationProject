@@ -24,7 +24,10 @@ public class EnemyChaseState : EnemyStateBase
         base.UpdateState();
         _enemyChasePlayerService.ChasePlayer(_player);
 
-        if(!_enemy.IsPlayerTriggered)
+        _enemy.EnemySoundController.PlayEnemyRunSound();
+
+
+        if (!_enemy.IsPlayerTriggered)
         {
             _enemyStateService.SwitchState(_enemy.EnemyMoveState);
         }

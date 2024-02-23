@@ -7,6 +7,7 @@ public abstract class Enemy : MonoBehaviour
 {
     [field:SerializeField] public EnemySO EnemySO { get;private set; }
     [field: SerializeField] public EnemyAnimationBase EnemyAnimation { get; private set; }
+    [field:SerializeField] public EnemySoundController EnemySoundController { get; private set; }
     [field: SerializeField] public Player Player {  get;  set; }
 
     public bool IsDead { get; set; }

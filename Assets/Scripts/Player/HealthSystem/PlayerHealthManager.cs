@@ -33,11 +33,15 @@ public class PlayerHealthManager : IPlayerHealthService
 
     public void TakeDamage(float damage)
     {
-        Health-=damage;
-
-        if(Health <= 0)
+        if(IsAlive)
         {
-            Die();
+            Health -= damage;
+            Player.Instance.PlayerSoundController.PlayPlayerHitSound(Player.Instance.transform.position);
+
+            if (Health <= 0)
+            {
+                Die();
+            }
         }
     }
 }
