@@ -31,7 +31,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b1b0134244e36784b9a6d58c192d76c9, type: 3}
   dashClips:
   - {fileID: 8300000, guid: 65d9836027675574b8d070c5718f99c7, type: 3}
-  fireSkillClips: []
+  fireSkillClips:
+  - {fileID: 8300000, guid: 30fb9130992daf34aa0af2fcc128b218, type: 3}
   hitClips:
   - {fileID: 8300000, guid: 5583e9c9a0afdf0408f9d0946666f85a, type: 3}
   - {fileID: 8300000, guid: 572fe06c861000149bc4b51cc1fdb09d, type: 3}

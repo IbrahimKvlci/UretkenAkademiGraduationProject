@@ -390,7 +390,7 @@ Transform:
   - {fileID: 7673652026377361661}
   - {fileID: 7270268917278167620}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &7933113394542304163
 CharacterController:
@@ -451,7 +451,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 355a92d374438034282765c4f92c124e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <WeaponSOList>k__BackingField:
+  <WeaponSOList>k__BackingField: []
+  <DefaultWeaponSOList>k__BackingField:
   - {fileID: 11400000, guid: 7d89a9dd7f2e1814db0f1934732fdc82, type: 2}
   weaponPoint: {fileID: 432865722019784023}
 --- !u!1 &9120957627348364720

@@ -6,6 +6,17 @@ public class ShopManager : IShopService
 {
     public void BuyProduct(ProductSO productSO, Player player)
     {
-        productSO.ProductShopService.Buy(productSO, player);
+        Debug.Log(productSO);
+        if (player.PlayerGoldService.Gold >= productSO.price)
+        {
+            //Gold is  enough
+            player.PlayerGoldService.Gold -= productSO.price;
+
+            productSO.ProductShopService.Buy(productSO, player);
+        }
+        else
+        {
+            //Not enough
+        }
     }
 }

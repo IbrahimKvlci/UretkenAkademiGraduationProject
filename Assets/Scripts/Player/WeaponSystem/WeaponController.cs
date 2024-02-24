@@ -6,6 +6,7 @@ using Zenject;
 public class WeaponController : MonoBehaviour
 {
     [field: SerializeField] public List<WeaponSO> WeaponSOList { get; set; }
+    [field:SerializeField] public List<WeaponSO> DefaultWeaponSOList { get; set; }
 
     [SerializeField] private Transform weaponPoint;
 
@@ -28,7 +29,7 @@ public class WeaponController : MonoBehaviour
 
     private void Start()
     {
-        WeaponSOList = PlayerPrefsSavingSystem.GetList<WeaponSO>(PlayerPrefsSavingSystem.PlayerPrefsNameEnum.Weapons);
+        WeaponSOList = PlayerPrefsSavingSystem.GetList<WeaponSO>(PlayerPrefsSavingSystem.PlayerPrefsNameEnum.Weapons,DefaultWeaponSOList);
 
         currentWeapon = Player.Instance.WeaponSO;
         _gameInputSystem.OnMouseWheelScrolled += GameInputSystem_OnMouseWheelScrolled;

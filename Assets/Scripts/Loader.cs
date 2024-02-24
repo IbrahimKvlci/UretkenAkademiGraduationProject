@@ -9,15 +9,21 @@ public static class Loader
     {
         MainMenuScene,
         GameScene,
-        LoadingScene
+        LoadingScene,
+        CurrentScene,
+        Map1,
+        Map2,
     }
 
 
     public static void Load(Scene targetScene)
     {
-
+        if (targetScene == Scene.CurrentScene)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            return;
+        }
         SceneManager.LoadScene(targetScene.ToString());
-
 
     }
 

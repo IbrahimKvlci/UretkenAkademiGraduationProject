@@ -17,6 +17,9 @@ public class FireSkillManager:ISkillService
     public void PlayAnimation(SkillBaseSO skill,PlayerAnimation playerAnimation)
     {
         playerAnimation.SkillParticleAnimation(((FireSkillSO)skill).prefab);
+
+        Player.Instance.PlayerSoundController.PlayPlayerFireSkillSound(Player.Instance.transform.position);
+
     }
 
     public void UseSkill(SkillBaseSO fireSkillSO)
@@ -30,7 +33,6 @@ public class FireSkillManager:ISkillService
             }
         }
 
-        Player.Instance.PlayerSoundController.PlayPlayerFireSkillSound(Player.Instance.transform.position);
     }
 
     

@@ -14,7 +14,7 @@ public class GameOverUI : MonoBehaviour
 
         gameOverBtn.onClick.AddListener(() =>
         {
-            Loader.Load(Loader.Scene.GameScene);
+            Loader.Load(Loader.Scene.CurrentScene);
         });
 
         Hide();

@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class PlayerPrefsSavingSystem : MonoBehaviour
 {
+
     public enum PlayerPrefsNameEnum
     {
         Gold,
@@ -63,6 +64,11 @@ public class PlayerPrefsSavingSystem : MonoBehaviour
     public static List<T> GetList<T>(PlayerPrefsNameEnum playerPrefsNameEnum)
     {
         return PlayerPrefsExtra.GetList<T>(playerPrefsNameEnum.ToString());
+    }
+
+    public static List<T> GetList<T>(PlayerPrefsNameEnum playerPrefsNameEnum,List<T> defaultValue)
+    {
+        return PlayerPrefsExtra.GetList<T>(playerPrefsNameEnum.ToString(),defaultValue);
     }
 
 

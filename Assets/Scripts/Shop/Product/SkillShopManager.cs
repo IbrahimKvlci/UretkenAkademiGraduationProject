@@ -6,26 +6,15 @@ public class SkillShopManager : IProductShopService
 {
     public void Buy(ProductSO productSO, Player player)
     {
-        if (player.PlayerGoldService.Gold >= productSO.price)
+        foreach (SkillBase skillBase in player.PlayerSkill.skillBaseList)
         {
-            //Gold is  enough
-            player.PlayerGoldService.Gold -= productSO.price;
-
-            foreach (SkillBase skillBase in player.PlayerSkill.skillBaseList)
+            if (((SkillBaseSO)productSO) == skillBase.SkillBaseSO)
             {
-                if (((SkillBaseSO)productSO) == skillBase.SkillBaseSO)
-                {
-                    skillBase.CanUse = true;
-                    player.PlayerSkill.PlayerSkills.Add(skillBase);
+                skillBase.CanUse = true;
+                player.PlayerSkill.PlayerSkills.Add(skillBase);
 
-                    PlayerPrefsSavingSystem.SetList<SkillBase>(PlayerPrefsSavingSystem.PlayerPrefsNameEnum.Skills, player.PlayerSkill.PlayerSkills);
-                }
+                PlayerPrefsSavingSystem.SetList<SkillBase>(PlayerPrefsSavingSystem.PlayerPrefsNameEnum.Skills, player.PlayerSkill.PlayerSkills);
             }
         }
-        else
-        {
-            //Gold is not enough
-        }
-
     }
 }
