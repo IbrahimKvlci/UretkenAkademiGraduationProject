@@ -11,9 +11,9 @@ public class SkillShopManager : IProductShopService
             if (((SkillBaseSO)productSO) == skillBase.SkillBaseSO)
             {
                 skillBase.CanUse = true;
-                player.PlayerSkill.PlayerSkills.Add(skillBase);
+                player.PlayerSkill.PlayerSkills.Add(skillBase.SkillBaseSO);
 
-                PlayerPrefsSavingSystem.SetList<SkillBase>(PlayerPrefsSavingSystem.PlayerPrefsNameEnum.Skills, player.PlayerSkill.PlayerSkills);
+                PlayerPrefsSavingSystem.SetList<SkillBaseSO>(PlayerPrefsSavingSystem.PlayerPrefsNameEnum.Skills, player.PlayerSkill.PlayerSkills);
             }
         }
     }

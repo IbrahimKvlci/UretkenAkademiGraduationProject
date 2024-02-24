@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,24 +8,32 @@ public static class Loader
 {
     public enum Scene
     {
-        MainMenuScene,
+        MainMenu,
         GameScene,
-        LoadingScene,
+        Loading,
         CurrentScene,
         Map1,
         Map2,
     }
 
+    private static Scene targetScene;
 
     public static void Load(Scene targetScene)
     {
         if (targetScene == Scene.CurrentScene)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            return;
+            Enum.TryParse<Scene>(SceneManager.GetActiveScene().name, out targetScene);
         }
-        SceneManager.LoadScene(targetScene.ToString());
 
+        Loader.targetScene=targetScene;
+
+        SceneManager.LoadScene(Scene.Loading.ToString());
+    }
+
+    public static void LoaderCallback()
+    {
+       
+        SceneManager.LoadScene(targetScene.ToString());
     }
 
 }
