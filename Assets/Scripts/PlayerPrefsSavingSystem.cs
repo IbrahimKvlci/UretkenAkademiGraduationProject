@@ -18,7 +18,7 @@ public class PlayerPrefsSavingSystem : MonoBehaviour
     {
         Player.Instance.PlayerGoldService.OnPlayerGoldChanged += PlayerGoldService_OnPlayerGoldChanged;
 
-        Player.Instance.PlayerGoldService.Gold=GetInt(PlayerPrefsNameEnum.Gold);
+        Player.Instance.PlayerGoldService.Gold=GetInt(PlayerPrefsNameEnum.Gold,5000);
     }
 
     private void PlayerGoldService_OnPlayerGoldChanged(object sender, System.EventArgs e)
@@ -34,6 +34,11 @@ public class PlayerPrefsSavingSystem : MonoBehaviour
     public int GetInt(PlayerPrefsNameEnum playerPrefsNameEnum)
     {
         return PlayerPrefs.GetInt(playerPrefsNameEnum.ToString(),0);
+    }
+
+    public int GetInt(PlayerPrefsNameEnum playerPrefsNameEnum,int defaultValue)
+    {
+        return PlayerPrefs.GetInt(playerPrefsNameEnum.ToString(), defaultValue);
     }
 
     public void SetFloat(PlayerPrefsNameEnum playerPrefsNameEnum,float value)

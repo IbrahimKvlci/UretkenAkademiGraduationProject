@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94b0c71e11e0fe04bb9f53a9a4fbf899, type: 3}
   m_Name: Map1
   m_EditorClassIdentifier: 
-  price: 0
-  text: 
-  icon: {fileID: 0}
+  price: 25
+  text: Map 1
+  icon: {fileID: 21300000, guid: 6ddfaa8da75b14e4c826347b9390a48a, type: 3}
   Map: 4
